@@ -168,6 +168,10 @@ angular.module('starter.controllers', [])
     });
   }
 
+  $scope.facebookLogin = function() {
+    console.log('test');
+  }
+
 })
 
 .controller('LeadersCtrl', function($scope, SocketIO, Answer) {

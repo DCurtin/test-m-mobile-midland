@@ -9,7 +9,7 @@
     "bookshelf": "^0.7.7",
     "cordova-plugin-fingerprint-aio": "^3.0.1",
     "express": "^4.4.0",
-    "knex": "^0.6.22",
+    "knex": "^0.21.1",
     "method-override": "^2.2.0",
     "nforce": "~0.7.0",
     "node-uuid": "^1.4.1",

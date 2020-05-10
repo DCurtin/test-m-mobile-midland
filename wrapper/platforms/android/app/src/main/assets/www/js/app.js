@@ -21,7 +21,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     if (['home', 'login', 'logout', 'register'].indexOf(toState.name) === -1) {
       if (!AuthenticationService.isAuthenticated && !$window.localStorage.token) {
         event.preventDefault();
-        $location.path("/login");
+        $location.path("/home");
       }
     }
 

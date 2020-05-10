@@ -168,7 +168,13 @@ angular.module('starter.controllers', [])
     });
   };
 
+  if($scope.URL.indexOf('http://') === -1 && document.URL.indexOf( 'https://' ) === -1)
+  {
+    Console.Log('test');
+  }
+  /*
   $scope.facebookLogin = function() {
+
     FingerprintAuth.isAvailable(function (result) {
 
       console.log("FingerprintAuth available: " + JSON.stringify(result));
@@ -208,7 +214,7 @@ angular.module('starter.controllers', [])
       }
   })
 
-}
+}*/
 }
 
 .controller('LeadersCtrl', function($scope, SocketIO, Answer) {

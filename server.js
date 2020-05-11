@@ -35,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'client/')));
 app.use(express.static(path.join(__dirname, 'admin/')));
 app.use(express.static(path.join(__dirname, 'server/pages')));
 
+//app.use(express.static(path.join(__dirname,'sfauth')));
+
 // Logging
 app.use(function(req, res, next) {
   logger.debug(req.method, req.url);
@@ -57,6 +59,7 @@ app.get('/admin', auth.authenticate, auth.require_admin, function (req, res) {
 
 app.use('/register', auth.register);
 app.use('/login', auth.login);
+app.use('/sfauth', auth.login);
 
 app.all('/resource/*', auth.authenticate);
 

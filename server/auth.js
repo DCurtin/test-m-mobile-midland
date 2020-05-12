@@ -77,8 +77,8 @@ module.exports = function(models) {
 
   function sfAuth(req, res, next) {
     var data = req.body;
-    var accessToken = req.headers['access_token'];
-    var refreshToken = req.headers['refresh_token'];
+    var accessToken = res.headers['access_token'];
+    var refreshToken = res.headers['refresh_token'];
     res.json("data: " + data + " accessToken: " + accessToken + " refToken: " + refreshToken )
     console.log("data: " + data + " accessToken: " + accessToken + " refToken: " + refreshToken );
   }

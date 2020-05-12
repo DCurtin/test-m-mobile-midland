@@ -85,8 +85,12 @@ module.exports = function(models) {
     var redirUrl= 'https://test-m-mobile-midland.herokuapp.com/sfauth';
     var url  = 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&redirect_uri='+redirUrl+'&state=token';
     process.env.test =
-    res.redirect(url);
-
+    res.json('test');
+    rp(url).then( function(result){
+      res.json('test2');
+    }).catch(err => {
+      res.status(500).send(err.message);
+    });
     /*var options ={
       method: 'POST',
       uri: 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&client_secret='+clientSec+'&redirect_uri='+redirUrl+'&state=token',

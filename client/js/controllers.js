@@ -155,17 +155,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LoginCtrl', function($scope, $location, RegistrationService) {
-  $scope.user = {
-    email: '',
-    password: ''
-  };
+
 
   $scope.$parent.logout_text = 'Register';
 
   $scope.login = function() {
-    RegistrationService.login($scope.user.email, $scope.user.password).then(function() {
-      $location.path("/");
-    });
+    RegistrationService.login();
   }
 
   $scope.facebookLogin = function() {

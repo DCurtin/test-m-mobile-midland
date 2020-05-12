@@ -207,7 +207,9 @@ angular.module('starter.controllers', [])
                   console.log("FingerprintAuth Error: " + err);
               }
           });
-      }});
+      }}, function (message) {
+        console.log("isAvailableError(): " + message);
+    });
   }
 
 })

@@ -90,8 +90,7 @@ module.exports = function(models) {
         client_secret: 'ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A'+'&',
         redirect_uri: 'https://test-m-mobile-midland.herokuapp.com/sfauth&',
         state: 'token'
-      },
-      'json': true
+      }
     };
     rp(options).then(function(response)
     {

@@ -93,10 +93,13 @@ module.exports = function(models) {
       },
       'json': true
     };
+    request(options).then(function(response){
 
-    res.json(queryCode + ' ' + queryState);
+      res.json(queryCode + ' ' + queryState + ' ' + response.params.access_token);
+      
+    });
 
-    request(options);
+
 
   }
 

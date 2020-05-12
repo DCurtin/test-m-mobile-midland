@@ -46,6 +46,10 @@ app.use(function(err, req, res, next) {
   res.status(500).send(err.message);
 });
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", '*');
+  next();
+});
 
 /********************* ROUTES *****************************/
 // Simple hack to only allow admin to load the admin page.

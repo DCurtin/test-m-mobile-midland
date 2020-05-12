@@ -78,7 +78,7 @@ angular.module('starter.services', [])
 .factory('RegistrationService', function($window, $http, $ionicPopup, $rootScope, AuthenticationService) {
   return {
     login: function(email, password) {
-      var url2 = 'https://entrust--dcurtin.my.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
+      var url2 = 'https://login.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
       var url = '/login'
       //var xhr = new XMLHttpRequest();
 

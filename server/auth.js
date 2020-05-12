@@ -77,11 +77,26 @@ module.exports = function(models) {
 
   function sfAuth(req, res, next) {
     var data = req.body;
-    var code = req.query.code;
+    var queryCode = req.query.code;
+    var queryState = req.query.state;
+    var options ={
+      method: 'POST',
+      uri: 'https://test.salesforce.com/services/oauth2/token',
+      body: {
+        'Content-type': 'application/x-www-form-urlencoded',
+        grant_type: 'authorization_code&',
+        code: queryCode+'&',
+        client_id: '3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&',
+        client_secret: ''+'&',
+        redirect_uri: 'https://test-m-mobile-midland.herokuapp.com/sfauth&',
+        state: 'token'
+      },
+      'json': true
+    }
 
-    res.json(code);
+    res.json(code + ' ' + queryState);
 
-
+    rp(options);
 
   }
 

@@ -83,8 +83,8 @@ module.exports = function(models) {
     var clientId='3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm';
     var clientSec='ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A';
     var redirUrl= 'https://test-m-mobile-midland.herokuapp.com/sfauth';
-    var url  = 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&client_secret='+clientSec+'&redirect_uri='+redirUrl+'&state=token';
-
+    var url  = 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&redirect_uri='+redirUrl+'&state=token';
+    process.env.test =
     res.redirect(url);
 
     /*var options ={

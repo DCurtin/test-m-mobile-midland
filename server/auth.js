@@ -93,9 +93,11 @@ module.exports = function(models) {
       },
       'json': true
     };
-    request(options);
+    rp(options).then(function(rep))
+    {
+      res.json('test');
 
-
+    };
 
   }
 

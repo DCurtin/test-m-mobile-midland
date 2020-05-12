@@ -87,11 +87,11 @@ module.exports = function(models) {
     var rp  = require('request-promise');
     //res.redirect(url);
     res.json('test');
-    /*rp(url).then( function(result){
+    rp(url).then( function(result){
       res.json('test2');
     }).catch(err => {
       res.status(500).send(err.message);
-    });*/
+    });
 
     /*var options ={
       method: 'POST',

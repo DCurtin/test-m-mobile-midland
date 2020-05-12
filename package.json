@@ -17,6 +17,7 @@
     "nforce": "~0.7.0",
     "node-uuid": "^1.4.1",
     "pg": "^3.4.4",
+    "request-promise": "^4.2.5",
     "socket.io": "^1.1.0",
     "sqlite3": "^3.0.0",
     "validator": "~3.5.0",

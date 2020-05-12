@@ -12,7 +12,7 @@ var http           = require('http'),
     restful        = require('./server/bookshelf_rest'),
     auth           = require('./server/auth')(models),
     force          = require('./server/force');
-    //rp             = require('request-promise'),
+    rp             = require('request-promise');
     //request        = require('request');
     ;
 

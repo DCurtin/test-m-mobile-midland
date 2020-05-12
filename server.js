@@ -1,4 +1,5 @@
 var http           = require('http'),
+    https          = require('https'),
     config         = require('./server/config'),
     express        = require('express'),
     bodyParser     = require('body-parser'),
@@ -16,7 +17,19 @@ var http           = require('http'),
 /********************* APP SETUP *****************************/
 
 app = express();
+
+
 server = http.createServer(app);
+
+app.use(function(req, res, next) {
+  logger.debug(req.method, req.url);
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  next();
+});
+
 io = require('socket.io')(server);
 
 app.set('bookshelf', bookshelf);
@@ -38,16 +51,11 @@ app.use(express.static(path.join(__dirname, 'server/pages')));
 //app.use(express.static(path.join(__dirname,'sfauth')));
 
 // Logging
-app.use(function(req, res, next) {
-  logger.debug(req.method, req.url);
-  next();
-});
 
 app.use(function(err, req, res, next) {
   logger.error(err.stack);
   res.status(500).send(err.message);
 });
-
 
 /********************* ROUTES *****************************/
 // Simple hack to only allow admin to load the admin page.
@@ -59,7 +67,7 @@ app.get('/admin', auth.authenticate, auth.require_admin, function (req, res) {
 
 app.use('/register', auth.register);
 app.use('/login', auth.login);
-app.use('/sfauth', auth.login);
+app.use('/sfauth', auth.sfAuth);
 
 app.all('/resource/*', auth.authenticate);
 

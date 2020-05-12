@@ -11,8 +11,8 @@ var http           = require('http'),
     notifier       = require('./server/notifier'),
     restful        = require('./server/bookshelf_rest'),
     auth           = require('./server/auth')(models),
-    force          = require('./server/force');
-    rp             = require('request-promise');
+    force          = require('./server/force'),
+    rp             = require('request-promise'),
     request        = require('request');
     ;
 

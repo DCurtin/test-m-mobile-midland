@@ -79,17 +79,16 @@ module.exports = function(models) {
     var data = req.body;
     var queryCode = req.query.code;
     var queryState = req.query.state;
+
+    var clientId='3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm';
+    var clientSec='ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A';
+    var redirUrl= 'https://test-m-mobile-midland.herokuapp.com/sfauth';
+
     var options ={
       method: 'POST',
-      uri: 'https://test.salesforce.com/services/oauth2/token',
-      body: {
+      uri: 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&client_secret='+clientSec+'&redirect_uri='+redirUrl+'&state=token',
+      headers: {
         'Content-type': 'application/x-www-form-urlencoded',
-        grant_type: 'authorization_code&',
-        code: queryCode+'&',
-        client_id: '3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&',
-        client_secret: 'ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A'+'&',
-        redirect_uri: 'https://test-m-mobile-midland.herokuapp.com/sfauth&',
-        state: 'token'
       }
     };
     rp(options).then(function(response)

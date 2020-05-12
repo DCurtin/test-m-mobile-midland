@@ -77,9 +77,11 @@ module.exports = function(models) {
 
   function sfAuth(req, res, next) {
     var data = req.body;
-    var code = req.code
+    var code = req.params.code;
 
     res.json(code);
+
+
 
   }
 

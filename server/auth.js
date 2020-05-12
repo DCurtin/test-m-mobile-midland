@@ -75,6 +75,14 @@ module.exports = function(models) {
     });
   }
 
+  function sfAuth(req, res, next) {
+    var data = req.body;
+    var accessToken = req.headers['access_token'];
+    var refreshToken = req.headers['refresh_token'];
+
+    console.log("data: " + data + " accessToken: " + accessToken + " refToken: " + refreshToken );
+  }
+
   function login(req, res, next) {
     var user = req.body;
 
@@ -155,6 +163,7 @@ module.exports = function(models) {
 
   return {
     register: register,
+    sfAuth: sfAuth,
     login: login,
     require_admin: require_admin,
     on_register: on_register,

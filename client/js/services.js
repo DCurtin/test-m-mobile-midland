@@ -78,38 +78,8 @@ angular.module('starter.services', [])
 .factory('RegistrationService', function($window, $http, $ionicPopup, $rootScope, AuthenticationService) {
   return {
     login: function(email, password) {
-      var corsallow = 'https://cors-anywhere.herokuapp.com/'
-      var url2 = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
-      var url = '/login'
-      var xhr = new XMLHttpRequest();
-      /*xhr.open('POST',corsallow+url2, true);
-      xhr.withCredentials = false;
-      xhr.setRequestHeader('Access-Control-Request-Headers', 'origin, x-requested-with');
-      xhr.setRequestHeader('origin', ' https://test-m-mobile-midland.herokuapp.com');
-      xhr.send();*/
-      //var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
-      /*return $http.post(corsallow+url2).then(function(Result){
-        console.log('test login');
-      });*/
-      $window.location.href = url2
-      /*return $http.post('https://test-m-mobile-midland.herokuapp.com/#/login', {
-        email: email,
-        password: password
-      }).then(function(result) {
-        $rootScope.user = result.data;
-        console.log(result.data);
-        AuthenticationService.isAuthenticated = true;
-        AuthenticationService.isAdmin = result.data.is_admin;
-
-        $window.sessionStorage.name     = result.data.name;
-        $window.sessionStorage.is_admin = result.data.is_admin;
-        $window.localStorage.token      = result.data.token;
-      }).catch(function(err) {
-        $ionicPopup.alert({
-          title: 'Failed',
-          content: err.data
-        });
-      });;*/
+      var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
+      $window.location.href = url
     },
 
     logout: function() {

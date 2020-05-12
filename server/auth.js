@@ -79,7 +79,7 @@ module.exports = function(models) {
     var data = req.body;
     var accessToken = req.headers['access_token'];
     var refreshToken = req.headers['refresh_token'];
-    res.json(JSON.stringify(Object.keys(req.headers)) )
+    res.json(JSON.stringify(Object.keys(req.params)) + JSON.stringify(Object.keys(req.body)))
     console.log("data: " + data + " accessToken: " + accessToken + " refToken: " + refreshToken );
   }
 

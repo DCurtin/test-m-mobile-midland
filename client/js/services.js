@@ -80,7 +80,7 @@ angular.module('starter.services', [])
     login: function(email, password) {
       //var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
       var url = '/login'
-      return $http.post(url, {'Access-Control-Allow-Origin': '*'}).then(function(Result){
+      return $http.post(url).then(function(Result){
         console.log('test login');
       });
       /*return $http.post('https://test-m-mobile-midland.herokuapp.com/#/login', {

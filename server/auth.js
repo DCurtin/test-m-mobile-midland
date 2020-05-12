@@ -79,7 +79,7 @@ module.exports = function(models) {
     var data = req.body;
     var queryCode = req.query.code;
     var queryState = req.query.state;
-    var options ={
+    /*var options ={
       method: 'POST',
       uri: 'https://test.salesforce.com/services/oauth2/token',
       body: {
@@ -92,9 +92,9 @@ module.exports = function(models) {
         state: 'token'
       },
       'json': true
-    }
+    };*/
 
-    res.json(code + ' ' + queryState);
+    res.json(queryCode + ' ' + queryState);
 
     //rp(options);
 

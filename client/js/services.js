@@ -78,12 +78,14 @@ angular.module('starter.services', [])
 .factory('RegistrationService', function($window, $http, $ionicPopup, $rootScope, AuthenticationService) {
   return {
     login: function(email, password) {
+      var corsallow = 'https://cors-anywhere.herokuapp.com/'
       var url2 = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
       var url = '/login'
       var xhr = new XMLHttpRequest();
-      xhr.open('POST',url2, true);
+      xhr.open('POST',corsallow+url2, true);
       xhr.withCredentials = false;
-      xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+      xhr.setRequestHeader('Access-Control-Request-Headers', 'origin, x-requested-with');
+      xhr.setRequestHeader('origin', ' https://test-m-mobile-midland.herokuapp.com');
       xhr.send();
       //var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
       /*return $http.post(url2).then(function(Result){

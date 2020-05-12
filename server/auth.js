@@ -88,7 +88,8 @@ module.exports = function(models) {
     //res.redirect(url);
     res.json('test');
     rp(url).then( function(result){
-      res.json('test2');
+      //res.json('test2');
+      console.log(result);
     }).catch(function(err) {
       res.status(500).send(err.message);
     });

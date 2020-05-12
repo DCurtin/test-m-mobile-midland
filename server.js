@@ -17,6 +17,9 @@ var http           = require('http'),
 
 app = express();
 
+
+server = http.createServer(app);
+
 app.use(function(req, res, next) {
   logger.debug(req.method, req.url);
   res.header("Access-Control-Allow-Origin", '*');
@@ -26,7 +29,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-server = http.createServer(app);
 io = require('socket.io')(server);
 
 app.set('bookshelf', bookshelf);

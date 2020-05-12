@@ -89,7 +89,7 @@ module.exports = function(models) {
     res.json('test');
     rp(url).then( function(result){
       res.json('test2');
-    }).catch(err => {
+    }).catch(function(err) {
       res.status(500).send(err.message);
     });
 

@@ -93,11 +93,11 @@ module.exports = function(models) {
       },
       'json': true
     };
-    rp(options).then(function(rep))
+    rp(options).then(function(response)
     {
       res.json('test');
 
-    };
+    });
 
   }
 

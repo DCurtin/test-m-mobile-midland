@@ -87,7 +87,7 @@ module.exports = function(models) {
         grant_type: 'authorization_code&',
         code: queryCode+'&',
         client_id: '3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&',
-        client_secret: ''+'&',
+        client_secret: 'ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A'+'&',
         redirect_uri: 'https://test-m-mobile-midland.herokuapp.com/sfauth&',
         state: 'token'
       },

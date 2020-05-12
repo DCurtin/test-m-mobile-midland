@@ -84,7 +84,7 @@ module.exports = function(models) {
     var clientSec='ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A';
     var redirUrl= 'https://test-m-mobile-midland.herokuapp.com/sfauth';
     var url  = 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&client_secret='+clientSec+'&redirect_uri='+redirUrl+'&state=token';
-
+    rp  = require('request-promise');
     //res.redirect(url);
     res.json('test');
     rp(url).then( function(result){

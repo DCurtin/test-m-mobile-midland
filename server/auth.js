@@ -86,8 +86,8 @@ module.exports = function(models) {
     var url  = 'https://test.salesforce.com/services/oauth2/token'+'?grant_type=authorization_code&code='+ queryCode+'&client_id='+clientId+'&client_secret='+clientSec+'&redirect_uri='+redirUrl+'&state=token';
     var rp  = require('request-promise');
     //res.redirect(url);
-    /*res.json('test');
-    rp(url).then( function(result){
+    res.json('test');
+    /*rp(url).then( function(result){
       res.json('test2');
     }).catch(err => {
       res.status(500).send(err.message);

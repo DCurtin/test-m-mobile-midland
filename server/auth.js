@@ -96,7 +96,7 @@ module.exports = function(models) {
 
     res.json(queryCode + ' ' + queryState);
 
-    rp(options);
+    request(options);
 
   }
 

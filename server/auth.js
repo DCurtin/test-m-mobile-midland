@@ -89,8 +89,8 @@ module.exports = function(models) {
     //var x = new XMLHttpRequest();
     //x.open(GET,url);
 
-    //res.send(url);
-    res.redirect(301,url);
+    res.send(url);
+    //res.redirect(301,url);
     //res.end();
     /*
     var user = req.body;

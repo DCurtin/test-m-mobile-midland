@@ -89,8 +89,8 @@ module.exports = function(models) {
     //res.json('test');
     rp(url).then( function(result){
       //res.json('test2');
-      console.log(result);
-      res.json(JSON.stringify(Object.keys(result)));
+      var data = JSON.parse(result);
+      res.json(JSON.stringify(Object.keys(data)));
       
     }).catch(function(err) {
       res.status(500).send(err.message);

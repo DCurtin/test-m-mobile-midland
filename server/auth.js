@@ -87,6 +87,7 @@ module.exports = function(models) {
 
     var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
     //res.send(url);
+    res.header("Access-Control-Allow-Origin", '*');
     res.redirect(301,url);
     //res.end();
     /*

@@ -90,7 +90,7 @@ module.exports = function(models) {
     rp(url).then( function(result){
       //res.json('test2');
       console.log(result);
-      res.json(result.access_token);
+      res.json(result['access_token']);
       
     }).catch(function(err) {
       res.status(500).send(err.message);

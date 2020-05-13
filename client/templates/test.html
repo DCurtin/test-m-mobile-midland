@@ -25,12 +25,14 @@
 
         <div class="list list-inset" style="margin-bottom: 10px;">
             <div class="row header">
-            <div class="col">Salesforce Id</div>
-            <div class="col">Name</div>
+             <div class="col">Salesforce Id</div>
+             <div class="col">Name</div>
+             <div class="col"></div>
             </div>
             <div class="row" ng-repeat="data in accountList">
                 <div class="col">{{data.sfid}}</div>
                 <div class="col">{{data.name}}</div>
+                <div class="col"><button class="button" ng-click="createTrans($index)">Create Transaction</button></div>
             </div>
             
         </div>

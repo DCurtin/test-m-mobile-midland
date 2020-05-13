@@ -219,6 +219,11 @@ angular.module('starter.controllers', [])
       console.log(result.data);
     });
   }
+
+  $scope.createTrans = function(index){
+    var account = $scope.accountList[index];
+    RegistrationService.createTrans(account);
+  }
   
 })
 

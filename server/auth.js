@@ -231,6 +231,13 @@ module.exports = function(models) {
     }
   }
 
+  function generate_transaction(req, res, next){
+    var data = req.body;
+    new models.transaction({data}).save().then(function(){
+      res.json('record created');
+    });
+  }
+
   return {
     getAccounts: getAccounts,
     register: register,
@@ -239,6 +246,7 @@ module.exports = function(models) {
     require_admin: require_admin,
     on_register: on_register,
     authenticate: authenticate,
-    clear_leaders: clear_leaders
+    clear_leaders: clear_leaders,
+    generate_transaction: generate_transaction
   }
 }

@@ -133,6 +133,13 @@ angular.module('starter.services', [])
         console.log(JSON.stringify(result));
         return result;
       })
+    },
+
+    createTrans: function(account){
+      return $http.post('/createTrans', account).then(function(result){
+        console.log(result);
+        return result;
+      })
     }
 
     

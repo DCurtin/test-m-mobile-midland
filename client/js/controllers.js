@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $location, RegistrationService) {
   $scope.logout = function() {
     RegistrationService.logout();
-    $location.path("/login");
+    $location.path("/register");
   }
   $scope.timeleft = '0 secs';
 })
@@ -224,7 +224,9 @@ angular.module('starter.controllers', [])
       console.log(result.data);
     });
   }
-  RegistrationService.sfAuth();
+  RegistrationService.sfAuth().then(function(){
+    $location.path('/test');
+  });
 })
 
 .controller('LeadersCtrl', function($scope, SocketIO, Answer) {

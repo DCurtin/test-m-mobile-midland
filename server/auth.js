@@ -112,7 +112,6 @@ module.exports = function(models) {
         'email': returnSfUser.get('email'),
         'token': data.access_token});
 
-        console.log('body: ' + JSON.stringify(res.body));
         //console.log(returnSfUser.attributes.email)
         //returnSfUser.set_title('test title');
         /*new models.account({dedicated_rep__c: sfId}).fetchAll().then(function(returnedAccount){

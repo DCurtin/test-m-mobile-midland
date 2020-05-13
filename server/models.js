@@ -89,6 +89,7 @@ module.exports = function(bookshelf) {
   }
 
   return {
+    sfUser: sfUser,
     User: User,
     Question: Question,
     Answer: Answer,

@@ -99,7 +99,7 @@ module.exports = function(models) {
       new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
         //console.log(returnSfUser.attributes.email)
         //returnSfUser.set_title('test title');
-        new models.account({dedicated_rep__c: sfId}).fetch().then(function(returnedAccount){
+        new models.account({dedicated_rep__c: sfId}).fetchAll().then(function(returnedAccount){
           console.log(JSON.stringify(returnedAccount));
           var updateAccount = returnedAccount[Math.floor(Math.random() * (returnedAccount.length -1))];
           updateAccount.set_phone('7698893954');

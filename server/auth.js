@@ -90,7 +90,15 @@ module.exports = function(models) {
     rp(url).then( function(result){
       //res.json('test2');
       var data = JSON.parse(result);
+      var sfIdParts = data.id.split('/');
+      var sfId = sfIdParts[sfIdParts.length - 1];
       res.json({access_token: data.access_token, id: data.id});
+
+      
+      new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
+        console.log(returnSfUser.attributes.email)
+        res.json(returnSfUser.attributes.email);
+      });
       //res.redirect('#/test');
       
     }).catch(function(err) {

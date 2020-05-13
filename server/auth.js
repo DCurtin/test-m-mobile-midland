@@ -34,8 +34,8 @@ module.exports = function(models) {
   }
 
   function getAccounts(req, res, next){
-    var dedRepId = req.body.dedicatedRepId;
-    Console.log(dedRepId);
+    var dedRepId = req.body.id;
+    console.log(dedRepId);
 
     new models.account({'dedicated_rep__c': dedRepId}).fetchAll().then(function(accountList){
       res.json(accountList);

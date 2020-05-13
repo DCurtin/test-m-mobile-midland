@@ -128,7 +128,7 @@ angular.module('starter.services', [])
 
     getAccounts: function(){
       var user = $rootScope.user;
-      console.log(user.Id);
+      console.log(user.id);
       return $http.post('/getAccounts',user).then(function(result){
         console.log(JSON.stringify(result));
         return result;

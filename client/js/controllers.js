@@ -222,6 +222,8 @@ angular.module('starter.controllers', [])
 
   $scope.createTrans = function(index){
     var account = $scope.accountList[index];
+    console.log(index);
+    console.log(account);
     RegistrationService.createTrans(account);
   }
   

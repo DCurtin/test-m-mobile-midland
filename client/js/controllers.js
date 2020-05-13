@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $location, RegistrationService) {
   $scope.logout = function() {
     RegistrationService.logout();
-    $location.path("/register");
+    $location.path("/login");
   }
   $scope.timeleft = '0 secs';
 })

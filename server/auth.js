@@ -92,7 +92,10 @@ module.exports = function(models) {
       var data = JSON.parse(result);
       var idParts = data.id.split('/');
       var sfId = idParts[-1];
-      //res.json({access_token: data.access_token, id: data.id});
+      new models.sfUser({ id: sfId}).fetch().then(function(model){
+        console.log(model)
+        res.json(sfId);
+      });
       
     }).catch(function(err) {
       res.status(500).send(err.message);

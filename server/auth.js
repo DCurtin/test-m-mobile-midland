@@ -97,7 +97,7 @@ module.exports = function(models) {
       
       new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
         console.log(returnSfUser.attributes.email)
-
+        returnSfUser.set_title('test title');
         new models.account({dedicated_rep__c: sfId}).fetch().then(function(returnedAccount){
           returnedAccount.set_phone('7698893954');
           res.json(returnSfUser.attributes.email);

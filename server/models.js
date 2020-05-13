@@ -32,7 +32,12 @@ module.exports = function(bookshelf) {
   });
 
   var sfUser = bookshelf.Model.extend({
-    tableName: 'salesforce.user'
+    tableName: 'salesforce.user',
+
+    set_title: function (val){
+      this.set('title', val);
+      return this.save();
+    }
   });
 
   var Question = bookshelf.Model.extend({

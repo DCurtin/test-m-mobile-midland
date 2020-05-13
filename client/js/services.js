@@ -86,9 +86,9 @@ angular.module('starter.services', [])
         console.log('user ' +JSON.stringify(value));
         $rootScope.user = value;
         Autehnticaed.isAuthenticated = true;
-        $window.sessionStorage.name     = value.name;
-        $window.sessionStorage.email     = value.email;
-        $window.localStorage.token      = value.token;
+        $window.sessionStorage.name = value.name;
+        $window.sessionStorage.email = value.email;
+        $window.localStorage.token = value.token;
       }).catch(function(err){
         console.log('error: ' + err);
       })

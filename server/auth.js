@@ -78,7 +78,7 @@ module.exports = function(models) {
   function sfAuth(req, res, next) {
     console.log('authing on server');
     var dataBody = req.body;
-    var code = dataBody.token.remove("%3D%3D");
+    var code = dataBody.token;
 
     var clientId='3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm';
     var clientSec='ACD35B3FC6AC4F4F1EF425489C36013EFD91F0831D3C24D6C889CF02C34EF88A';

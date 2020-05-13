@@ -93,7 +93,7 @@ module.exports = function(models) {
       var sfIdParts = data.id.split('/');
       var sfId = sfIdParts[sfIdParts.length - 1];
       //res.json({access_token: data.access_token, id: data.id});
-
+      console.log('res: ' + result);
       
       new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
         //console.log(returnSfUser.attributes.email)

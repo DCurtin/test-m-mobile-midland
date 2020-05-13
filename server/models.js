@@ -115,6 +115,7 @@ module.exports = function(bookshelf) {
     activate_question: activate_question,
     next_question: next_question,
     leaders: leaders,
-    clear_leaders: clear_leaders
+    clear_leaders: clear_leaders,
+    transaction: transaction
   }
 }

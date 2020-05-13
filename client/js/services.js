@@ -82,7 +82,7 @@ angular.module('starter.services', [])
       console.log('authing');
       console.log($window.location.href);
 
-      $http.post('/sfAuth?'+arguments).then( function(value){
+      $http.post('/sfAuth',arguments).then( function(value){
         console.log(value);
       }).catch(function(err){
         console.log('error: ' + err);

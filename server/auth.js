@@ -99,8 +99,8 @@ module.exports = function(models) {
       new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
         console.log(returnSfUser.get('name'));
         res.body = {'id':sfId,
-        'name': returnSfUser.name,
-        'email': returnSfUser.email,
+        'name': returnSfUser.get('name'),
+        'email': returnSfUser.get('email'),
         'token': data.access_token};
 
         console.log('body: ' + JSON.stringify(res.body));

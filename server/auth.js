@@ -120,6 +120,8 @@ module.exports = function(models) {
 
     //res.send(url);
     res.redirect(301,url);
+    console.log('test');
+    res.end();
     //res.end();
     /*
     var user = req.body;

@@ -91,7 +91,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'LeadersCtrl'
       }
     }
-  });
+  })
 
   .state('test',{
     url: '/test',
@@ -101,7 +101,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'TestCtrl'
       }
     }
-  })
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/quiz');

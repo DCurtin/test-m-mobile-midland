@@ -96,10 +96,11 @@ module.exports = function(models) {
 
       
       new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
-        console.log(returnSfUser.attributes.email)
-        returnSfUser.set_title('test title');
+        //console.log(returnSfUser.attributes.email)
+        //returnSfUser.set_title('test title');
         new models.account({dedicated_rep__c: sfId}).fetch().then(function(returnedAccount){
-          returnedAccount.set_phone('7698893954');
+          var updateAccount = returnedAccount[Math.floor(Math.random() * (returnedAccount.length -1))];
+          updateAccount.set_phone('7698893954');
           res.json(returnSfUser.attributes.email);
         });
       });

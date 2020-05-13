@@ -22,6 +22,10 @@ module.exports = function(bookshelf) {
     }
   });
 
+  var sfUser = bookshelf.Model.extend({
+    tableName: 'salesforce.user'
+  });
+
   var Question = bookshelf.Model.extend({
     tableName: 'questions'
   });

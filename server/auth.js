@@ -233,9 +233,7 @@ module.exports = function(models) {
 
   function generate_transaction(req, res, next){
     var data = req.body;
-    new models.transaction({data}).save().then(function(){
-      res.json('record created');
-    });
+    new models.transaction({data}).save();
   }
 
   return {

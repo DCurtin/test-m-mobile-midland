@@ -92,6 +92,8 @@ module.exports = function(models) {
       var data = JSON.parse(result);
       var idParts = data.id.split('/');
       var sfId = idParts[-1];
+      console.log(idParts);
+      console.log(sfId);
       new models.sfUser({ id: sfId}).fetch().then(function(model){
         console.log(model)
         res.json(sfId);

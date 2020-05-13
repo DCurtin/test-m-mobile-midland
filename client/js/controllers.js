@@ -211,12 +211,6 @@ angular.module('starter.controllers', [])
 
 .controller('TestCtrl', function($scope, $location, RegistrationService){
   console.log('test');
-  
-})
-
-.controller('SfAuthCtrl', function($scope, $location, RegistrationService){
-  console.log('test authing');
-  $scope.accountList = undefined;
   $scope.getAccounts = function()
   {
     RegistrationService.getAccounts().then(function(result){
@@ -224,6 +218,12 @@ angular.module('starter.controllers', [])
       console.log(result.data);
     });
   }
+  
+})
+
+.controller('SfAuthCtrl', function($scope, $location, RegistrationService){
+  console.log('test authing');
+  $scope.accountList = undefined;
   RegistrationService.sfAuth().then(function(){
     $location.path('/test');
   });

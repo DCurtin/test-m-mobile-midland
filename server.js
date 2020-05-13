@@ -70,6 +70,7 @@ app.get('/admin', auth.authenticate, auth.require_admin, function (req, res) {
 app.use('/register', auth.register);
 app.use('/login', auth.login);
 app.post('/sfauth', auth.sfAuth);
+app.post('/getAccounts', auth.getAccounts)
 
 app.all('/resource/*', auth.authenticate);
 

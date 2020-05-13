@@ -33,6 +33,15 @@ module.exports = function(models) {
     return user;
   }
 
+  function getAccounts(req, res, next){
+    var dedRepId = req.body.dedicatedRepId;
+    Console.log(dedRepId);
+
+    new models.account({'dedicated_rep__c': dedRepId}).fetchAll().then(function(accountList){
+      res.json(accountList);
+    })
+  }
+
   function register(req, res, next) {
     var user = req.body;
 
@@ -224,6 +233,7 @@ module.exports = function(models) {
   }
 
   return {
+    getAccounts: getAccounts,
     register: register,
     sfAuth: sfAuth,
     login: login,

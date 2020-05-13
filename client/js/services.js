@@ -124,7 +124,18 @@ angular.module('starter.services', [])
           content: err.data
         });
       });
+    },
+
+    getAccounts: function(){
+      var user = $rootScope.user;
+      console.log(user.Id);
+      return $http.post('/getAccounts',user).then(function(result){
+        console.log(JSON.stringify(result));
+        return result;
+      })
     }
+
+    
   }
 })
 

@@ -211,10 +211,19 @@ angular.module('starter.controllers', [])
 
 .controller('TestCtrl', function($scope, $location, RegistrationService){
   console.log('test');
+  
 })
 
 .controller('SfAuthCtrl', function($scope, $location, RegistrationService){
   console.log('test authing');
+  $scope.accountList = undefined;
+  $scope.getAccounts = function()
+  {
+    RegistrationService.getAccounts().then(function(result){
+      $scope.accountList = result.data
+      console.log(result.data);
+    });
+  }
   RegistrationService.sfAuth();
 })
 

@@ -92,19 +92,24 @@ module.exports = function(models) {
       var data = JSON.parse(result);
       var sfIdParts = data.id.split('/');
       var sfId = sfIdParts[sfIdParts.length - 1];
-      console.log()
+
       //res.json({access_token: data.access_token, id: data.id});
       console.log('res: ' + result);
       
       new models.sfUser({ sfid: sfId}).fetch().then(function(returnSfUser){
+        
+      res.body = {id:sfId,
+        name: returnSfUser.name,
+        email: returnSfUser.email,
+        token: data.access_token};
         //console.log(returnSfUser.attributes.email)
         //returnSfUser.set_title('test title');
-        new models.account({dedicated_rep__c: sfId}).fetchAll().then(function(returnedAccount){
+        /*new models.account({dedicated_rep__c: sfId}).fetchAll().then(function(returnedAccount){
           console.log(JSON.stringify(returnedAccount));
           var updateAccount = returnedAccount[Math.floor(Math.random() * (returnedAccount.length -1))];
           updateAccount.set_phone('7698893954');
           res.body = returnedAccount;
-        });
+        });*/
       });
       //res.redirect('#/test');
       

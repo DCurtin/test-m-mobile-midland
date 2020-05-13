@@ -95,8 +95,9 @@ module.exports = function(models) {
       console.log(idParts);
       console.log(sfId);
       new models.sfUser({ sfid: sfId +''}).fetch().then(function(model){
-        console.log(model.email)
-        res.json(model);
+        var modelData = JSON.parse(model);
+        console.log(modelData.email)
+        res.json(modelData.email);
       });
       
     }).catch(function(err) {

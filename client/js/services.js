@@ -78,12 +78,15 @@ angular.module('starter.services', [])
 .factory('RegistrationService', function($window, $http, $ionicPopup, $rootScope, AuthenticationService) {
   return {
     sfAuth: function() {
+      var arguments = $window.location.href.split('?')[1].split('#')[0];
       console.log('authing');
-      console.log($http)
+      console.log($window.location.href);
+
+      $http.post('/sfAuth')
     },
 
     login: function() {
-      var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/#/sfauth&state=init&prompt=login'
+      var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth&state=init&prompt=login'
       $window.location.href = url
       /*return $http.post(url).then(function(result){
         console.log(result);

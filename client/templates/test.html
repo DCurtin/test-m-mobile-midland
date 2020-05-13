@@ -21,22 +21,19 @@
                 Get Dedicated Rep Accounts
             </button>
         </div>
-    </ion-content>
 
-    <ion-content has-header="true" padding="true">
+
         <div class="list list-inset" style="margin-bottom: 10px;">
-
-            <ion-content>
-                <div class="row header">
-                <div class="col">Salesforce Id</div>
-                <div class="col">Name</div>
-                <div class="col"></div>
-                </div>
-                <div class="row" ng-repeat="data in accountList">
-                    <div class="col">{{data.sfid}}</div>
-                    <div class="col">{{data.name}}</div>
-                </div>
-            </ion-content>
+            <div class="row header">
+            <div class="col">Salesforce Id</div>
+            <div class="col">Name</div>
+            <div class="col"></div>
+            </div>
+            <div class="row" ng-repeat="data in accountList">
+                <div class="col">{{data.sfid}}</div>
+                <div class="col">{{data.name}}</div>
+            </div>
+            
         </div>
     </ion-content>
 

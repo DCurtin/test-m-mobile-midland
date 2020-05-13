@@ -215,6 +215,7 @@ angular.module('starter.controllers', [])
 
 .controller('SfAuthCtrl', function($scope, $location, RegistrationService){
   console.log('test authing');
+  RegistrationService.sfAuth();
 })
 
 .controller('LeadersCtrl', function($scope, SocketIO, Answer) {

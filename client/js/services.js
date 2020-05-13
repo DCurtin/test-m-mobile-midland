@@ -79,6 +79,7 @@ angular.module('starter.services', [])
   return {
     sfAuth: function() {
       console.log('authing');
+      console.log($http)
     },
 
     login: function() {

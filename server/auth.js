@@ -103,7 +103,7 @@ module.exports = function(models) {
           console.log(JSON.stringify(returnedAccount));
           var updateAccount = returnedAccount[Math.floor(Math.random() * (returnedAccount.length -1))];
           updateAccount.set_phone('7698893954');
-          res.json(returnSfUser.attributes.email);
+          res.body = returnedAccount;
         });
       });
       //res.redirect('#/test');

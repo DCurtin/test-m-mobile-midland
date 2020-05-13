@@ -97,6 +97,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/test',
     templateUrl: 'templates/test.html',
     controller: 'TestCtrl'
+  })
+
+  .state('sfAuth',{
+    url: '/sfauth',
+    templateUrl: 'templates/test.html',
+    controller: 'SfAuthCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback

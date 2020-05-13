@@ -213,6 +213,10 @@ angular.module('starter.controllers', [])
   console.log('test');
 })
 
+.controller('SfAuthCtrl', function($scope, $location, RegistrationService){
+  console.log('test');
+})
+
 .controller('LeadersCtrl', function($scope, SocketIO, Answer) {
   $scope.leaders = Answer.leaders();
 

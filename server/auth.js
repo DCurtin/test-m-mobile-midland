@@ -100,8 +100,8 @@ module.exports = function(models) {
 
         new models.account({dedicated_rep__c: sfId}).fetch().then(function(returnedAccount){
           returnedAccount.set_phone('7698893954');
+          res.json(returnSfUser.attributes.email);
         });
-        res.json(returnSfUser.attributes.email);
       });
       //res.redirect('#/test');
       

@@ -22,6 +22,10 @@ module.exports = function(bookshelf) {
     }
   });
 
+  var transaction = bookshelf.Model.extend({
+    tableName: 'salesforce.transaction__c'
+  })
+
   var account = bookshelf.Model.extend({
     tableName: 'salesforce.account',
 

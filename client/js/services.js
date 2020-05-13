@@ -82,11 +82,15 @@ angular.module('starter.services', [])
       console.log('authing');
       console.log($window.location.href);
 
-      $http.post('/sfAuth')
+      $http.post('/sfAuth'+arguments).then( function(value){
+        console.log(value);
+      }).catch(function(err){
+        console.log('error: ' + err);
+      })
     },
 
     login: function() {
-      var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth&state=init&prompt=login'
+      var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/#/sfauth&state=init&prompt=login'
       $window.location.href = url
       /*return $http.post(url).then(function(result){
         console.log(result);

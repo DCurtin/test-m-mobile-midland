@@ -211,6 +211,7 @@ angular.module('starter.controllers', [])
 
 .controller('TestCtrl', function($scope, $location, RegistrationService){
   console.log('test');
+  var user = $scope.user;
   $scope.getAccounts = function()
   {
     RegistrationService.getAccounts().then(function(result){

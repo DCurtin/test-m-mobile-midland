@@ -78,10 +78,10 @@ angular.module('starter.services', [])
 .factory('RegistrationService', function($window, $http, $ionicPopup, $rootScope, AuthenticationService) {
   return {
     sfAuth: function() {
-      var arguments = $window.location.href.split('?')[1].split('#')[0];
+      var arguments = {token: $window.location.href.split('?')[1].split('#')[0]};
+
       console.log('authing');
       console.log($window.location.href);
-
       $http.post('/sfAuth',arguments).then( function(value){
         console.log(value);
       }).catch(function(err){

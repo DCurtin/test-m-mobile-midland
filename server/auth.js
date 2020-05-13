@@ -76,6 +76,7 @@ module.exports = function(models) {
   }
 
   function sfAuth(req, res, next) {
+    console.log('authing on server');
     var data = req.body;
     var queryCode = req.query.code;
     var queryState = req.query.state;

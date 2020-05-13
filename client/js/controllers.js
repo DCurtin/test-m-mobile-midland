@@ -213,6 +213,7 @@ angular.module('starter.controllers', [])
   console.log('test');
   var user = $scope.user;
   $scope.getAccounts = function(){
+    console.log('getting accounts');
     RegistrationService.getAccounts().then(function(result){
       $scope.accountList = result.data
       console.log(result.data);

@@ -22,6 +22,15 @@ module.exports = function(bookshelf) {
     }
   });
 
+  var account = bookshelf.Model.extend({
+    tableName: 'salesforce.account',
+
+    set_phone: function(val){
+      this.set('Phone', val);
+      return this.save();
+    }
+  });
+
   var sfUser = bookshelf.Model.extend({
     tableName: 'salesforce.user'
   });

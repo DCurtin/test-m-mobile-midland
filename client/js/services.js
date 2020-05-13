@@ -82,7 +82,7 @@ angular.module('starter.services', [])
 
       console.log('authing');
       console.log($window.location.href);
-      $http.post('/sfAuth',arguments).then( function(result){
+      return $http.post('/sfAuth',arguments).then( function(result){
         var value = result.data;
         console.log('user ' + value);
         $rootScope.user = value;

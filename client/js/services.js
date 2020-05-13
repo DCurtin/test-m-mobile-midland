@@ -83,14 +83,14 @@ angular.module('starter.services', [])
       console.log('authing');
       console.log($window.location.href);
       $http.post('/sfAuth',arguments).then( function(value){
-        console.log('user ' +JSON.stringify(value));
+        console.log('user ' + value);
         $rootScope.user = value;
         Autehnticaed.isAuthenticated = true;
         $window.sessionStorage.name = value.name;
         $window.sessionStorage.email = value.email;
         $window.localStorage.token = value.token;
       }).catch(function(err){
-        console.log('error: ' + err);
+        console.log('error: ' + JSON.stringify(err));
       })
     },
 

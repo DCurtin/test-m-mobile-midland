@@ -101,7 +101,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .state('sfAuth',{
     url: '/sfauth',
-    templateUrl: 'templates/test.html',
+    templateUrl: 'templates/sfAuth.html',
     controller: 'SfAuthCtrl'
   });
 

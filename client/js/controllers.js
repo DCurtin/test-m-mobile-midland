@@ -224,7 +224,16 @@ angular.module('starter.controllers', [])
     var account = $scope.accountList[index];
     console.log(index);
     console.log(account);
-    RegistrationService.createTrans(account);
+    RegistrationService.createTrans(account).then(function(){
+        var alertPopup = $ionicPopup.alert({
+          title: 'Don\'t eat that!',
+          template: 'It might taste good'
+        });
+      
+        alertPopup.then(function(res) {
+          console.log('Thank you for not eating my delicious ice cream cone');
+        });
+    });
   }
   
 })

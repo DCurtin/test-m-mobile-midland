@@ -261,6 +261,8 @@ angular.module('starter.controllers', [])
       textBlob = new Blob([decodedString], {type: 'text/plain'});
 
       reader.readAsDataURL(textBlob);
+      window.open(URL.createObjectURL(textBlob));
+
       //$window.show()
     });
   }

@@ -327,7 +327,7 @@ angular.module('starter.controllers', [])
       //reader.readAsDataURL(textBlob);
       fileurl = URL.createObjectURL(textBlob);
 
-      $window.open(fileurl);
+      window.open(fileurl);
       //$scope.content = $sce.trustAsResourceUrl(fileurl)
 
       //$window.show()

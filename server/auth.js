@@ -240,6 +240,13 @@ module.exports = function(models) {
     });
   }
 
+  function getFile(req, res, next){
+    var data = req.body;
+    new models.contentVersion().fetchOne().then(function(result){
+      res.json(result);
+    });
+  }
+
   return {
     getAccounts: getAccounts,
     register: register,
@@ -249,6 +256,7 @@ module.exports = function(models) {
     on_register: on_register,
     authenticate: authenticate,
     clear_leaders: clear_leaders,
-    generate_transaction: generate_transaction
+    generate_transaction: generate_transaction,
+    getFile: getFile
   }
 }

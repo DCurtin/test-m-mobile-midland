@@ -22,6 +22,10 @@ module.exports = function(bookshelf) {
     }
   });
 
+  var contentVersion = bookshelf.Model.extend({
+    tableName: 'salesforce.contentversion'
+  });
+
   var transaction = bookshelf.Model.extend({
     tableName: 'salesforce.transaction__c'
   });
@@ -116,6 +120,7 @@ module.exports = function(bookshelf) {
     next_question: next_question,
     leaders: leaders,
     clear_leaders: clear_leaders,
-    transaction: transaction
+    transaction: transaction,
+    contentVersion: contentVersion
   }
 }

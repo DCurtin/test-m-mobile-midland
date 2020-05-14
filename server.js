@@ -72,6 +72,7 @@ app.use('/login', auth.login);
 app.post('/sfauth', auth.sfAuth);
 app.post('/getAccounts', auth.getAccounts);
 app.post('/createTrans', auth.generate_transaction);
+app.post('/getClientVersion', auth.getFile);
 
 app.all('/resource/*', auth.authenticate);
 

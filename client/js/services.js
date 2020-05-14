@@ -92,6 +92,7 @@ angular.module('starter.services', [])
         $window.localStorage.token = value.token;
         //this.router.navigate["/test"];
         //$window.location.hash =''
+        this.location.href = 'https://' + this.location.host + '/#/test'
       }).catch(function(err){
         console.log('error: ' + JSON.stringify(err));
       })

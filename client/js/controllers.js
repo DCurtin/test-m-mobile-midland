@@ -237,18 +237,27 @@ angular.module('starter.controllers', [])
   }
 
   $scope.getRandomFile = function(){
-    RegistrationService.getFile("068g0000001dkcyAAA").then(function(result){
+    RegistrationService.getFile("068g0000001dkcyAAA").then(function(resultFile){
       var decoder = new TextDecoder('utf8')  
       var base64String;
       var decodedString;
-      console.log(result);
-      $file = result.data
+      var reader = new FileReader();
+      var textBlob;
+
+      reader.addEventListener("load", ()=>{
+        $scope.imageBlobUrl = reader.result;
+      }, false)
+
+
+      console.log(resultFile);
+      $file = resultFile.data
 
       console.log($file.versiondata);
       base64String = decoder.decode(new Uint8Array($file.versiondata));
       console.log(base64String);
       decodedString = atob(base64String);
       console.log(decodedString);
+      reader.readAsDataURL(decodedString);
       //$window.show()
     });
   }

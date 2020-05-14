@@ -246,7 +246,7 @@ angular.module('starter.controllers', [])
       var textBlob;
 
       reader.addEventListener("load", ()=>{
-        $scope.imageBlobUrl = reader.result;
+        window.open(reader.result);
       }, false)
 
 
@@ -263,7 +263,7 @@ angular.module('starter.controllers', [])
       textBlob = new Blob([decodedString], {type: 'application/pdf'});
 
       reader.readAsDataURL(textBlob);
-      window.open(URL.createObjectURL(textBlob));
+      //window.open(URL.createObjectURL(textBlob));
 
       //$window.show()
     });

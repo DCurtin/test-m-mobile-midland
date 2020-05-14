@@ -245,6 +245,7 @@ angular.module('starter.controllers', [])
       var reader = new FileReader();
       var textBlob;
       var fileurl;
+      var xhr = new XMLHttpRequest();
       var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
         
@@ -325,10 +326,15 @@ angular.module('starter.controllers', [])
 
       textBlob = new Blob([decodedString], {type: 'application/pdf'});
 
-      //reader.readAsDataURL(textBlob);
-      fileurl = URL.createObjectURL(textBlob);
+      var link=document.createElement('a');
+      link.href=window.URL.createObjectURL(textBlob);
+      link.download="Report_"+new Date()+".pdf";
+      link.click();
 
-      window.open($sce.trustAsResourceUrl(fileurl));
+      //reader.readAsDataURL(textBlob);
+      //fileurl = URL.createObjectURL(textBlob);
+
+      //window.open($sce.trustAsResourceUrl(fileurl));
       //$scope.content = $sce.trustAsResourceUrl(fileurl)
 
       //$window.show()

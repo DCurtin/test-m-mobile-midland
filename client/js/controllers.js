@@ -234,7 +234,7 @@ angular.module('starter.controllers', [])
   $scope.accountList = undefined;
   RegistrationService.sfAuth().then(function(){
     //$location.path('/test');
-    this.router.navigate["/test"];
+    
   });
 })
 

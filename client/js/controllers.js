@@ -209,7 +209,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('TestCtrl', function($scope, $location, RegistrationService){
+.controller('TestCtrl', function($scope, $ionicPopup, $location, RegistrationService){
   console.log('test');
   var user = $scope.user;
   $scope.getAccounts = function(){

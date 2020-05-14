@@ -238,8 +238,8 @@ angular.module('starter.controllers', [])
 
   $scope.getRandomFile = function(){
     RegistrationService.getFile("068g0000001dVZRAA2").then(function(resultFile){
-      var decoder = new TextDecoder('windows-1252')  
-      //var decoder = new TextDecoder();
+      //var decoder = new TextDecoder('windows-1252')  
+      var decoder = new TextDecoder();
       var base64String;
       var decodedString;
       var reader = new FileReader();

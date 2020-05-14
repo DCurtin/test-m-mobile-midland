@@ -244,9 +244,9 @@ module.exports = function(models) {
     var data = req.body;
 
     models.contentVersion.query(function(qb){
-      qb.where('sfid' , '!=' , undefined);
+      qb.where('sfid' , '!=' , '');
     }).fetchAll().then(function(result){
-      console.log('data: ' + result)
+      console.log('data: ' + result.length)
       res.json(result);  
     })
     /*new models.contentVersion().fetchOne().then(function(result){

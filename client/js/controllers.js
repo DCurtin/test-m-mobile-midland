@@ -255,7 +255,7 @@ angular.module('starter.controllers', [])
       $file = resultFile.data
 
       console.log($file.versiondata);
-      base64String = decoder.decode(new Uint16Array($file.versiondata));
+      base64String = decoder.decode(new Uint8ClampedArray($file.versiondata));
       console.log(base64String);
       decodedString = atob(base64String);
       //decodedString = new Buffer(base64String, 'base64').toString('ascii');

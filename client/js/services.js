@@ -90,7 +90,7 @@ angular.module('starter.services', [])
         $window.sessionStorage.name = value.name;
         $window.sessionStorage.email = value.email;
         $window.localStorage.token = value.token;
-        $window.history.replaceState({}, document.title, "/" + "#/sfAuth");
+        //$window.history.replaceState({}, document.title, "/" + "#/sfAuth");
         //this.router.navigate["/test"];
         //$window.location.hash =''
         //this.location.href = 'https://' + this.location.host + '/#/test'

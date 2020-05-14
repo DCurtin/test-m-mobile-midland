@@ -238,8 +238,17 @@ angular.module('starter.controllers', [])
 
   $scope.getRandomFile = function(){
     RegistrationService.getFile("068g0000001dkcyAAA").then(function(result){
-        console.log(result);
-        $file = result.data
+      var decoder = new TextDecoder('utf8')  
+      var base64String;
+      var decodedString;
+      console.log(result);
+      $file = result.data
+
+      console.log($file.versiondata);
+      base64String = decoder.decode($file.versiondata);
+      console.log(base64String);
+      decodedString = btoa(base64String);
+      console.log(decodedString);
       //$window.show()
     });
   }

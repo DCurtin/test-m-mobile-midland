@@ -209,7 +209,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('TestCtrl', function($scope, $ionicPopup, $location, RegistrationService){
+.controller('TestCtrl', function($scope, $ionicPopup, $location, $sce, RegistrationService){
   console.log('test');
   var user = $scope.user;
   $scope.getAccounts = function(){
@@ -244,10 +244,11 @@ angular.module('starter.controllers', [])
       var decodedString;
       var reader = new FileReader();
       var textBlob;
+      var fileurl;
 
-      reader.addEventListener("load", ()=>{
+      /*reader.addEventListener("load", ()=>{
         window.open(reader.result);
-      }, false)
+      }, false)*/
 
 
       console.log(resultFile);
@@ -262,8 +263,10 @@ angular.module('starter.controllers', [])
 
       textBlob = new Blob([decodedString], {type: 'image/png'});
 
-      reader.readAsDataURL(textBlob);
-      //window.open(URL.createObjectURL(textBlob));
+      //reader.readAsDataURL(textBlob);
+      fileurl = URL.createObjectURL(textBlob);
+
+      $scope.content = $sce.trustAsResourceUrl(fileurl)
 
       //$window.show()
     });

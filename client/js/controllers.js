@@ -226,8 +226,8 @@ angular.module('starter.controllers', [])
     console.log(account);
     RegistrationService.createTrans(account).then(function(){
         var alertPopup = $ionicPopup.alert({
-          title: 'Don\'t eat that!',
-          template: 'It might taste good'
+          title: 'Transaction Created',
+          template: 'It will be given a name and salesforce id on sync.'
         });
       
         alertPopup.then(function(res) {

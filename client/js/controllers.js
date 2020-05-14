@@ -237,7 +237,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.getRandomFile = function(){
-    RegistrationService.getFile("068g0000001dVZSAA2").then(function(resultFile){
+    RegistrationService.getFile("068g0000001dkgqAAA").then(function(resultFile){
       //var decoder = new TextDecoder('windows-1252')  
       var decoder = new TextDecoder()  
       var base64String;
@@ -260,7 +260,7 @@ angular.module('starter.controllers', [])
       //decodedString = new Buffer(base64String, 'base64').toString('ascii');
       console.log(decodedString);
 
-      textBlob = new Blob([decodedString], {type: 'image/png'});
+      textBlob = new Blob([decodedString], {type: 'application/pdf'});
 
       reader.readAsDataURL(textBlob);
       window.open(URL.createObjectURL(textBlob));

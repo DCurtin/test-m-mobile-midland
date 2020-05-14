@@ -90,7 +90,7 @@ angular.module('starter.services', [])
         $window.sessionStorage.name = value.name;
         $window.sessionStorage.email = value.email;
         $window.localStorage.token = value.token;
-        this.router.navigate["/test"];
+        //this.router.navigate["/test"];
         //$window.location.hash =''
       }).catch(function(err){
         console.log('error: ' + JSON.stringify(err));

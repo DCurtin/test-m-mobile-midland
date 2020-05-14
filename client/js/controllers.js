@@ -255,7 +255,8 @@ angular.module('starter.controllers', [])
       console.log($file.versiondata);
       base64String = decoder.decode(new Uint8Array($file.versiondata));
       console.log(base64String);
-      decodedString = atob(base64String);
+      //decodedString = atob(base64String);
+      decodedString = new Buffer(base64String, 'base64').toString('ascii');
       console.log(decodedString);
 
       textBlob = new Blob([decodedString], {type: 'image/png'});

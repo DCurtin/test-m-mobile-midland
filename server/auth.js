@@ -242,9 +242,15 @@ module.exports = function(models) {
 
   function getFile(req, res, next){
     var data = req.body;
-    new models.contentVersion().fetchOne().then(function(result){
+
+    models.contentVersion.query(function(qb){
+      qb.where('sfid' , '!=' , null);
+    }).fetch().then(function(result){
+      res.json(result);  
+    })
+    /*new models.contentVersion().fetchOne().then(function(result){
       res.json(result);
-    });
+    });*/
   }
 
   return {

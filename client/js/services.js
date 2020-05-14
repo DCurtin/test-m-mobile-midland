@@ -94,7 +94,7 @@ angular.module('starter.services', [])
         //this.router.navigate["/test"];
         //$window.location.hash =''
         //this.location.href = 'https://' + this.location.host + '/#/test'
-        this.location.replace();
+       // this.location.replace();
       }).catch(function(err){
         console.log('error: ' + JSON.stringify(err));
       })

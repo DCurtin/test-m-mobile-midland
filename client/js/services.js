@@ -136,7 +136,13 @@ angular.module('starter.services', [])
     },
 
     createTrans: function(account){
-      return $http.post('/createTrans', account).then(function(result){
+      var transaction = {
+        paybable_to_from__c:'test 123',
+        recordtypeid :'01230000000Ne2TAAS',
+        account__c: account.sfid,
+        assigned_to__c: account.dedicated_rep__c
+      };
+      return $http.post('/createTrans', transaction).then(function(result){
         console.log(result);
         return result;
       })

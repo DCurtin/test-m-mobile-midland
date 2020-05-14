@@ -326,7 +326,7 @@ angular.module('starter.controllers', [])
 
       textBlob = new Blob([decodedString], {type: 'application/pdf'});
 
-      xhr.open('GET', './api/exportdoc/report_'+id, true);
+      xhr.open('GET', './api/exportdoc/report_12', true);
       xhr.responseType = 'arraybuffer';
       xhr.onload = function(e) {
          if (this.status == 200) {

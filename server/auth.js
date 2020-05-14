@@ -41,7 +41,7 @@ module.exports = function(models) {
       res.json(accountList);  
     })*/
 
-    new models.account.query(function(qb){
+    models.account.query(function(qb){
       qb.where('dedicated_rep__c' , '=' , dedRepId);
     }).fetchAll().then(function(accountList){
       res.json(accountList);  

@@ -233,7 +233,7 @@ angular.module('starter.controllers', [])
   console.log('test authing');
   $scope.accountList = undefined;
   RegistrationService.sfAuth().then(function(){
-    //$location.path('/test');
+    $location.path('/test');
     //$location.replaceState('test');
     //this.location.href = 'https://' + this.location.host + '/#/test'
   });

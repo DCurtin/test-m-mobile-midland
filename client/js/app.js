@@ -111,4 +111,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Register middleware to ensure our auth token is passed to the server
   $httpProvider.interceptors.push('TokenInterceptor');
 
+  $httpProvider.decorator('$state', function ($delegate) {
+    var state = $delegate;
+
+    state.baseGo = state.go;
+
+    var go = function (to, params, options) {
+        options = options || {};
+
+        if (angular.isUndefined(options.inherit)) {
+            options.inherit = false;
+        }
+
+        this.baseGo(to, params, options);
+    };
+
+    state.go = go;
+    return $delegate;
+});
+
 })

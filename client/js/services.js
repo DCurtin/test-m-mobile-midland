@@ -67,7 +67,7 @@ angular.module('starter.services', [])
       if (rejection != null && rejection.status === 401 && ($window.localStorage.token || AuthenticationService.isAuthenticated)) {
         delete $window.localStorage.token;
         AuthenticationService.isAuthenticated = false;
-        $location.path("/register");
+        $location.path("/login");
       }
 
       return $q.reject(rejection);

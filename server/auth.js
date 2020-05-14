@@ -37,8 +37,8 @@ module.exports = function(models) {
     var dedRepId = req.body.id;
     console.log(dedRepId);
 
-    new models.account.query('where','dedicated_rep__c','=', dedRepId).fetch().then(function(accountList){
-      res.json(accountList);
+    new models.account.where({'dedicated_rep__c': dedRepId}).fetch().then(function(accountList){
+      res.json(accountList);  
     })
   }
 

@@ -37,7 +37,7 @@ module.exports = function(models) {
     var dedRepId = req.body.id;
     console.log(dedRepId);
 
-    new models.account({'dedicated_rep__c': dedRepId}).fetch().then(function(accountList){
+    new models.account({'dedicated_rep__c': dedRepId}).fetchAll().then(function(accountList){
       res.json(accountList);  
     })
   }

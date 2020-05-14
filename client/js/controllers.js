@@ -238,7 +238,8 @@ angular.module('starter.controllers', [])
 
   $scope.getRandomFile = function(){
     RegistrationService.getFile("068g0000001dVZSAA2").then(function(resultFile){
-      var decoder = new TextDecoder('windows-1252')  
+      //var decoder = new TextDecoder('windows-1252')  
+      var decoder = new TextDecoder()  
       var base64String;
       var decodedString;
       var reader = new FileReader();
@@ -255,8 +256,8 @@ angular.module('starter.controllers', [])
       console.log($file.versiondata);
       base64String = decoder.decode(new Uint8Array($file.versiondata));
       console.log(base64String);
-      //decodedString = atob(base64String);
-      decodedString = new Buffer(base64String, 'base64').toString('ascii');
+      decodedString = atob(base64String);
+      //decodedString = new Buffer(base64String, 'base64').toString('ascii');
       console.log(decodedString);
 
       textBlob = new Blob([decodedString], {type: 'image/png'});

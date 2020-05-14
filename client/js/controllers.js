@@ -306,7 +306,7 @@ angular.module('starter.controllers', [])
       }
 
       reader.addEventListener("load", ()=>{
-        //window.open(reader.result);
+        window.open(reader.result);
         $scope.content = $sce.trustAsResourceUrl(reader.result)
       }, false)
 

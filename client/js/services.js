@@ -90,6 +90,8 @@ angular.module('starter.services', [])
         $window.sessionStorage.name = value.name;
         $window.sessionStorage.email = value.email;
         $window.localStorage.token = value.token;
+
+        $window.location.href('/test');
       }).catch(function(err){
         console.log('error: ' + JSON.stringify(err));
       })

@@ -37,10 +37,6 @@ module.exports = function(models) {
     var dedRepId = req.body.id;
     console.log(dedRepId);
 
-    /*new models.account({'dedicated_rep__c': dedRepId}).fetchAll().then(function(accountList){
-      res.json(accountList);  
-    })*/
-
     models.account.query(function(qb){
       qb.where('dedicated_rep__c' , '=' , dedRepId);
     }).fetchAll().then(function(accountList){

@@ -258,7 +258,7 @@ angular.module('starter.controllers', [])
       decodedString = atob(base64String);
       console.log(decodedString);
 
-      textBlob = new Blob([decodedString], {type: 'application/pdf'});
+      textBlob = new Blob([decodedString], {type: 'image/png'});
 
       reader.readAsDataURL(textBlob);
       window.open(URL.createObjectURL(textBlob));

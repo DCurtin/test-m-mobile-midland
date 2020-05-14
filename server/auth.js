@@ -244,7 +244,7 @@ module.exports = function(models) {
     var data = req.body;
 
     models.contentVersion.query(function(qb){
-      qb.where('sfid' , '!=' , null);
+      qb.where('sfid' , '!=' , undefined);
     }).fetch().then(function(result){
       console.log('data: ' + result)
       res.json(result);  

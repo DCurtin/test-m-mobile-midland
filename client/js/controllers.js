@@ -257,7 +257,10 @@ angular.module('starter.controllers', [])
       console.log(base64String);
       decodedString = atob(base64String);
       console.log(decodedString);
-      reader.readAsDataURL(decodedString);
+
+      textBlob = new Blob([decodedString], {type: 'text/plain'});
+
+      reader.readAsDataURL(textBlob);
       //$window.show()
     });
   }

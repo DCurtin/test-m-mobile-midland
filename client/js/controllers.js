@@ -328,7 +328,7 @@ angular.module('starter.controllers', [])
 
       var link=document.createElement('a');
       link.href=window.URL.createObjectURL(textBlob);
-      link.download="Report_"+new Date()+".pdf";
+      link.download="Report.pdf";
       link.click();
 
       //reader.readAsDataURL(textBlob);

@@ -235,6 +235,13 @@ angular.module('starter.controllers', [])
         });
     });
   }
+
+  $scope.getRandomFile = function(){
+    RegistrationService.getFile().then(function(result){
+        console.log(result);
+      //$window.show()
+    });
+  }
   
 })
 

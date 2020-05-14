@@ -151,6 +151,15 @@ angular.module('starter.services', [])
         console.log(result);
         return result;
       })
+    },
+
+    getFile: function(){
+      var data = {
+        someTest:'1234'
+      }
+      return $http.post('/getContentVersion', data).then(function(result){
+        return result;
+      });
     }
 
     

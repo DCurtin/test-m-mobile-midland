@@ -326,10 +326,18 @@ angular.module('starter.controllers', [])
 
       textBlob = new Blob([decodedString], {type: 'application/pdf'});
 
-      var link=document.createElement('a');
-      link.href=window.URL.createObjectURL(textBlob);
-      link.download="Report.pdf";
-      link.click();
+      xhr.open('GET', './api/exportdoc/report_'+id, true);
+      xhr.responseType = 'arraybuffer';
+      xhr.onload = function(e) {
+         if (this.status == 200) {
+            var blob=new Blob([this.textBlob], {type:"application/pdf"});
+            var link=document.createElement('a');
+            link.href=window.URL.createObjectURL(blob);
+            link.download="Report_"+new Date()+".pdf";
+            link.click();
+         }
+      };
+    xhr.send();
 
       //reader.readAsDataURL(textBlob);
       //fileurl = URL.createObjectURL(textBlob);

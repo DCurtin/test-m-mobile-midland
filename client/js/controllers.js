@@ -235,7 +235,7 @@ angular.module('starter.controllers', [])
   RegistrationService.sfAuth().then(function(){
     //$location.path('/test');
     //$location.replaceState('test');
-    this.location.replaceState('test');
+    this.location.href = 'https://' + this.location.host + '/#/test'
   });
 })
 

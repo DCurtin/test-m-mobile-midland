@@ -245,7 +245,7 @@ angular.module('starter.controllers', [])
       $file = result.data
 
       console.log($file.versiondata);
-      base64String = decoder.decode($file.versiondata);
+      base64String = decoder.decode(new Uint8Array($file.versiondata));
       console.log(base64String);
       decodedString = btoa(base64String);
       console.log(decodedString);

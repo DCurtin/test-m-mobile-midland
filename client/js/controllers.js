@@ -237,8 +237,9 @@ angular.module('starter.controllers', [])
   }
 
   $scope.getRandomFile = function(){
-    RegistrationService.getFile().then(function(result){
+    RegistrationService.getFile("068g0000001dkcyAAA").then(function(result){
         console.log(result);
+        $file = result.data
       //$window.show()
     });
   }

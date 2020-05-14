@@ -153,9 +153,9 @@ angular.module('starter.services', [])
       })
     },
 
-    getFile: function(){
+    getFile: function(fileId){
       var data = {
-        someTest:'1234'
+        sfid:fileId
       }
       return $http.post('/getContentVersion', data).then(function(result){
         return result;

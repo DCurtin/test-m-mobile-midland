@@ -305,9 +305,10 @@ angular.module('starter.controllers', [])
         }
       }
 
-      /*reader.addEventListener("load", ()=>{
-        window.open(reader.result);
-      }, false)*/
+      reader.addEventListener("load", ()=>{
+        //window.open(reader.result);
+        $scope.content = $sce.trustAsResourceUrl(reader.result)
+      }, false)
 
 
       console.log(resultFile);
@@ -324,10 +325,10 @@ angular.module('starter.controllers', [])
 
       textBlob = new Blob([decodedString], {type: 'image/png'});
 
-      //reader.readAsDataURL(textBlob);
-      fileurl = URL.createObjectURL(textBlob);
+      reader.readAsDataURL(textBlob);
+      //fileurl = URL.createObjectURL(textBlob);
 
-      window.open($sce.trustAsResourceUrl(fileurl));
+      //window.open($sce.trustAsResourceUrl(fileurl));
       //$scope.content = $sce.trustAsResourceUrl(fileurl)
 
       //$window.show()

@@ -223,7 +223,7 @@ module.exports = function(models) {
   function clear_leaders(req, res, next) {
     user_cache = {};
     return models.clear_leaders(req, res, next);
-  }
+  } CanvasRenderingContext2D,,
 
   function require_admin(req, res, next) {
     if (!req.user.get('is_admin')) {
@@ -242,7 +242,7 @@ module.exports = function(models) {
 
   function getFile(req, res, next){
     var data = req.body;
-
+    console.log('id: ' + data.sfid);
     models.contentVersion.query(function(qb){
       qb.where('sfid' , '=' , data.sfid);
     }).fetch().then(function(result){

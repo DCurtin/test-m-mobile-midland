@@ -144,6 +144,8 @@ module.exports = function(models) {
 
   }
 
+  
+
   function login(req, res, next) {
 
     var url = 'https://test.salesforce.com/services/oauth2/authorize?response_type=token&client_id=3MVG9ahGHqp.k2_wp5KNZXDK5mBqaJaRv6ss6l7gQkGLZfriwyGa_1aRXE88g0W5oT9rwlJQ31ieo52ucBrJm&redirect_uri=https://test-m-mobile-midland.herokuapp.com/sfauth'
@@ -240,14 +242,80 @@ module.exports = function(models) {
     });
   }
 
-  function getFile(req, res, next){
-    var data = req.body;
+  function getFile(q, res, next){
+    var Base64Binary = {
+        _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+
+        /* will return a  Uint8Array type */
+        decodeArrayBuffer: function(input) {
+          var bytes = (input.length/4) * 3;
+          var ab = new ArrayBuffer(bytes);
+          this.decode(input, ab);
+
+          return ab;
+        },
+      
+        removePaddingChars: function(input){
+          var lkey = this._keyStr.indexOf(input.charAt(input.length - 1));
+          if(lkey == 64){
+            return input.substring(0,input.length - 1);
+          }
+          return input;
+        },
+      
+        decode: function (input, arrayBuffer) {
+          //get last chars to see if are valid
+          input = this.removePaddingChars(input);
+          input = this.removePaddingChars(input);
+        
+          var bytes = parseInt((input.length / 4) * 3, 10);
+
+          var uarray;
+          var chr1, chr2, chr3;
+          var enc1, enc2, enc3, enc4;
+          var i = 0;
+          var j = 0;
+
+          if (arrayBuffer)
+            uarray = new Uint8Array(arrayBuffer);
+          else
+            uarray = new Uint8Array(bytes);
+
+          input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+          for (i=0; i<bytes; i+=3) {	
+            //get the 3 octects in 4 ascii chars
+            enc1 = this._keyStr.indexOf(input.charAt(j++));
+            enc2 = this._keyStr.indexOf(input.charAt(j++));
+            enc3 = this._keyStr.indexOf(input.charAt(j++));
+            enc4 = this._keyStr.indexOf(input.charAt(j++));
+          
+            chr1 = (enc1 << 2) | (enc2 >> 4);
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            chr3 = ((enc3 & 3) << 6) | enc4;
+          
+            uarray[i] = chr1;			
+            if (enc3 != 64) uarray[i+1] = chr2;
+            if (enc4 != 64) uarray[i+2] = chr3;
+          }
+        
+          return uarray;	
+        }
+      }
+
+    var sfid = req.params['sfid'];
+    var decoder = new TextDecoder('windows-1252')  
 
     models.contentVersion.query(function(qb){
-      qb.where('sfid' , '=' , data.sfid);
+      qb.where('sfid' , '=' , sfid);
     }).fetch().then(function(result){
       console.log('data: ' + result.length)
-      res.json(result);  
+      base64String = decoder.decode(new Uint8Array($result.versiondata));
+      base64Array = Base64Binary.decodeArrayBuffer(base64String);
+      decodedString = decoder.decode(base64Array);
+      textBlob = new Blob([decodedString], {type: 'application/pdf'});
+      res.status(200).json({blob: textBlob});
+      //res.json();  
     })
     /*new models.contentVersion().fetchOne().then(function(result){
       res.json(result);

@@ -312,9 +312,9 @@ module.exports = function(models) {
     models.contentVersion.query(function(qb) {
       qb.where('sfid', '<>', givenSfid)
     }).fetch().then(function(result){
-      console.log('data: ' + Object.keys(result))
+      console.log('data: ' + result.sfid)
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
-      base64String = (new Buffer(new Uint8Array($result.versiondata))).toString('utf-8');
+      base64String = (new Buffer(new Uint8Array(result.versiondata))).toString('utf-8');
       base64Array = Base64Binary.decodeArrayBuffer(base64String);
       decodedString = (new Buffer(new Uint8Array(base64Array))).toString('utf-8');
       textBlob = new Blob([decodedString], {type: 'application/pdf'});

@@ -242,8 +242,9 @@ angular.module('starter.controllers', [])
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';
     xhr.onload = function(result) {
+        //console.log(result.respone)
         if (this.status == 200) {
-          var blob=new Blob([result.data.blob], {type:"image/png"});
+          var blob=new Blob(result.target.response, {type:"image/png"});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".pdf";

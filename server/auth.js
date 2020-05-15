@@ -243,7 +243,7 @@ module.exports = function(models) {
   }
 
   function getFile(req, res, next){
-    const { StringDecoder } = require('string_decoder')
+    //var StringDecoder  = require('string_decoder');
     var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 

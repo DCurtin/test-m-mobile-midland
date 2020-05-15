@@ -304,8 +304,8 @@ module.exports = function(models) {
         }
       }
 
-    var sfid = req.params['sfid'];
-    console.log(req.params);
+    var sfid = req.param('sfid');
+    console.log(req.param('sfid'));
     console.log(req.body);
     //var decoder = new StringDecoder('windows-1252')  
     

@@ -239,25 +239,19 @@ angular.module('starter.controllers', [])
   $scope.getRandomFile = function(){
     
     var xhr = new XMLHttpRequest();
-    var decoder = new TextDecoder('iso-8859-1');
-    var encoder = new TextEncoder('iso-8859-1', {NONSTANDARD_allowLegacyEncoding: true});
+    //var decoder = new TextDecoder('iso-8859-1');
+    //var encoder = new TextEncoder('iso-8859-1', {NONSTANDARD_allowLegacyEncoding: true});
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
-    xhr.responseType = 'arraybuffer';
-    xhr.setRequestHeader("Content-type","text/plain;charset=WINDOWS-1252;")
-    xhr.onload = function(result) {
-        //console.log(result.respone)
-        if (this.status == 200) {
-          var decodedText = decoder.decode(new Uint8Array(result.target.response));
-          var encodedText = encoder.encode(decodedText);
-          console.log(encodedText);
-          var blob=new Blob([decodedText]);
-          var link=document.createElement('a');
-          link.href=window.URL.createObjectURL(blob);
-          link.download="Report_"+new Date()+".png";
-          //window.open(link.href);
-          link.click();
-        }
+    //xhr.responseType = 'arraybuffer';
+    xhr.responseType = "arraybuffer";
+
+    xhr.onload = function () {
+      if (this.status === 200) {
+          var blob = new Blob([xhr.response], {type: "image/png"});
+          var objectUrl = URL.createObjectURL(blob);
+          window.open(objectUrl);
+      }
     };
     xhr.send();
    /*

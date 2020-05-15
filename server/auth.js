@@ -305,6 +305,8 @@ module.exports = function(models) {
       }
 
     var sfid = req.params['sfid'];
+    console.log(req.params);
+    console.log(req.body);
     //var decoder = new StringDecoder('windows-1252')  
     
     models.contentVersion.query(function(qb){

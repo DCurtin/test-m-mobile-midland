@@ -240,16 +240,16 @@ angular.module('starter.controllers', [])
     
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
-      xhr.responseType = 'arraybuffer';
-      xhr.onload = function(result) {
-         if (this.status == 200) {
-            var blob=new Blob([result.data.blob], {type:"application/pdf"});
-            var link=document.createElement('a');
-            link.href=window.URL.createObjectURL(blob);
-            link.download="Report_"+new Date()+".pdf";
-            link.click();
-         }
-      };
+    xhr.responseType = 'arraybuffer';
+    xhr.onload = function(result) {
+        if (this.status == 200) {
+          var blob=new Blob([result.data.blob], {type:"image/png"});
+          var link=document.createElement('a');
+          link.href=window.URL.createObjectURL(blob);
+          link.download="Report_"+new Date()+".pdf";
+          link.click();
+        }
+    };
     xhr.send();
    /*
     RegistrationService.getFile("068g0000001dkgqAAA").then(function(resultFile){

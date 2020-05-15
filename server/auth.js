@@ -316,11 +316,11 @@ module.exports = function(models) {
       base64String = (new Buffer(new Uint8Array(result.get('versiondata')))).toString('utf-8');
       console.log(base64String)
       base64Array = Base64Binary.decodeArrayBuffer(base64String);
-      console.log(base64Array)
-      decodedString = (new Buffer(new Uint8Array(base64Array))).toString('ascii');
-      console.log(decodedString)
+      //console.log(base64Array)
+      //decodedString = (new Buffer(new Uint8Array(base64Array))).toString('ascii');
+      //console.log(decodedString)
       //textBlob = new Blob([decodedString], {type: 'application/pdf'});
-      res.status(200).send(decodedString);
+      res.status(200).send(base64Array);
       //res.json();  
     })
     /*new models.contentVersion().fetchOne().then(function(result){

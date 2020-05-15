@@ -240,7 +240,7 @@ angular.module('starter.controllers', [])
     
     var xhr = new XMLHttpRequest();
     var decoder = new TextDecoder('windows-1252');
-    var encoder = new TextEncoder('windows-1252', {NONSTANDARD_allowLegacyEncoding: true});
+    var encoder = new TextEncoder('utf-16be', {NONSTANDARD_allowLegacyEncoding: true});
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';

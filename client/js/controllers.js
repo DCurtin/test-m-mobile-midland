@@ -239,8 +239,8 @@ angular.module('starter.controllers', [])
   $scope.getRandomFile = function(){
     
     var xhr = new XMLHttpRequest();
-    var decoder = new TextDecoder('windows-1252');
-    var encoder = new TextEncoder('iso-8859-2', {NONSTANDARD_allowLegacyEncoding: true});
+    var decoder = new TextDecoder();
+    var encoder = new TextEncoder('utf-8', {NONSTANDARD_allowLegacyEncoding: true});
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';

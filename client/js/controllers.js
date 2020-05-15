@@ -244,6 +244,7 @@ angular.module('starter.controllers', [])
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';
+    xhr.setRequestHeader("Contetn-type","text/plain;charset=ISO-8859-1;")
     xhr.onload = function(result) {
         //console.log(result.respone)
         if (this.status == 200) {
@@ -253,8 +254,9 @@ angular.module('starter.controllers', [])
           var blob=new Blob([encodedText], {type: 'application/octet-stream', encoding:'ISO-8859-1'});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
+          link.download="Report_"+new Date()+".png";
+          link.header
           window.open(link.href);
-          //link.download="Report_"+new Date()+".png";
           //link.click();
         }
     };

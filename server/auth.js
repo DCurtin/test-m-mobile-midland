@@ -304,13 +304,13 @@ module.exports = function(models) {
         }
       }
 
-    var sfid = req.param('sfid');
-    console.log('file sfid: ' + sfid);
+    var givenSfid = req.param('sfid');
+    console.log('file sfid: ' + givenSfid);
     //console.log(req.body);
     //var decoder = new StringDecoder('windows-1252')  
     
-    new models.contentVersion({'sfid':sfid}).fetch().then(function(result){
-      console.log('data: ' + result)
+    new models.contentVersion({'sfid' : givenSfid}).fetch().then(function(result){
+      console.log('data: ' + Object.keys(result))
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
       base64String = (new Buffer(new Uint8Array($result.versiondata))).toString('utf-8');
       base64Array = Base64Binary.decodeArrayBuffer(base64String);

@@ -244,18 +244,17 @@ angular.module('starter.controllers', [])
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';
-    xhr.setRequestHeader("Content-type","text/plain;charset=ISO-8859-1;")
+    xhr.setRequestHeader("Content-type","text/plain;charset=WINDOWS-1252;")
     xhr.onload = function(result) {
         //console.log(result.respone)
         if (this.status == 200) {
           var decodedText = decoder.decode(new Uint8Array(result.target.response));
           var encodedText = encoder.encode(decodedText);
           console.log()
-          var blob=new Blob([encodedText], {type: 'application/octet-stream', encoding:'ISO-8859-1'});
+          var blob=new Blob([encodedText], {type: 'application/octet-stream', encoding:'WINDOWS-1252'});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".png";
-          link.header
           //window.open(link.href);
           link.click();
         }

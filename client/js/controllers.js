@@ -244,7 +244,7 @@ angular.module('starter.controllers', [])
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';
-    xhr.setRequestHeader("Contetn-type","text/plain;charset=ISO-8859-1;")
+    xhr.setRequestHeader("Content-type","text/plain;charset=ISO-8859-1;")
     xhr.onload = function(result) {
         //console.log(result.respone)
         if (this.status == 200) {

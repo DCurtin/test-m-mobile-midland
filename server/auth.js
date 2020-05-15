@@ -312,7 +312,7 @@ module.exports = function(models) {
     models.contentVersion.query(function(qb){
       qb.where('sfid' , '=' , sfid);
     }).fetch().then(function(result){
-      console.log('data: ' + result.sfid)
+      console.log('data: ' + result)
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
       base64String = (new Buffer(new Uint8Array($result.versiondata))).toString('utf-8');
       base64Array = Base64Binary.decodeArrayBuffer(base64String);

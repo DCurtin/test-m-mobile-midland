@@ -240,7 +240,7 @@ angular.module('starter.controllers', [])
     
     var xhr = new XMLHttpRequest();
     var decoder = new TextDecoder('ascii');
-    var encoder = new TextEncoder('utf-8', {NONSTANDARD_allowLegacyEncoding: true});
+    var encoder = new TextEncoder('ascii', {NONSTANDARD_allowLegacyEncoding: true});
     //var decoder = new TextDecoder();
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';
@@ -251,7 +251,7 @@ angular.module('starter.controllers', [])
           var decodedText = decoder.decode(new Uint8Array(result.target.response));
           var encodedText = encoder.encode(decodedText);
           console.log(encodedText);
-          var blob=new Blob([decodedText]);
+          var blob=new Blob([encodedText]);
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".png";

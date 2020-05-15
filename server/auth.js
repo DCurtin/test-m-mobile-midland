@@ -320,7 +320,7 @@ module.exports = function(models) {
       decodedString = (new Buffer(new Uint8Array(base64Array))).toString('ascii');
       console.log(decodedString)
       //textBlob = new Blob([decodedString], {type: 'application/pdf'});
-      res.status(200).json({blob: new Buffer(decodedString)});
+      res.status(200).send(decodedString);
       //res.json();  
     })
     /*new models.contentVersion().fetchOne().then(function(result){

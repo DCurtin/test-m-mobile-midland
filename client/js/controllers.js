@@ -242,13 +242,13 @@ angular.module('starter.controllers', [])
     //var decoder = new TextDecoder('iso-8859-1');
     //var encoder = new TextEncoder('iso-8859-1', {NONSTANDARD_allowLegacyEncoding: true});
     //var decoder = new TextDecoder();
-    xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
+    xhr.open('GET', '/getContentVersion?sfid=068g0000001dkgqAAA', true);
     //xhr.responseType = 'arraybuffer';
     xhr.responseType = "arraybuffer";
 
     xhr.onload = function () {
       if (this.status === 200) {
-          var blob = new Blob([xhr.response], {type: "image/png"});
+          var blob = new Blob([xhr.response], {type: "application/pdf"});
           var objectUrl = URL.createObjectURL(blob);
           window.open(objectUrl);
       }

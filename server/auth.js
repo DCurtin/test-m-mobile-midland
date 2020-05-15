@@ -245,7 +245,7 @@ module.exports = function(models) {
     console.log('id: ' + data.sfid);
     models.contentVersion.query(function(qb){
       qb.where('sfid' , 'LIKE' ,'%'+data.sfid+'%');
-    }).fetch().then(function(result){
+    }).fetch({colums:[sfid]}).then(function(result){
       console.log('data: ' + result.sfid)
       res.json(result);  
     })

@@ -312,11 +312,12 @@ module.exports = function(models) {
     models.contentVersion.query(function(qb) {
       qb.where('sfid', '=', givenSfid)
     }).fetch().then(function(result){
+      var utf8 = require('utf8')
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
       console.log(result.get('versiondata'));
       base64String = result.get('versiondata').toString('ascii');
       console.log(base64String)
-      base64Array = Base64Binary.decodeArrayBuffer(base64String);
+      base64Array = Base64Binary.decodeArrayBuffer(utf8.encode(base64String));
       //console.log(base64Array)
       //decodedString = (new Buffer(new Uint8Array(base64Array))).toString('ascii');
       //console.log(decodedString)

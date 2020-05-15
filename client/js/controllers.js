@@ -239,7 +239,7 @@ angular.module('starter.controllers', [])
   $scope.getRandomFile = function(){
     
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/getContentVersion?sfid=068g0000001dkgqAAA', true);
+    xhr.open('GET', '/getContentVersion?sfid=068g0000001dkWMAAY', true);
       xhr.responseType = 'arraybuffer';
       xhr.onload = function(result) {
          if (this.status == 200) {

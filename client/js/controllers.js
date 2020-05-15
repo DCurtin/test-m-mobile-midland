@@ -251,7 +251,7 @@ angular.module('starter.controllers', [])
           var decodedText = decoder.decode(new Uint8Array(result.target.response));
           var encodedText = encoder.encode(decodedText);
           console.log(encodedText);
-          var blob=new Blob([encodedText], {type: 'text/plain;charset=WINDOWS-1252;', encoding:'WINDOWS-1252'});
+          var blob=new Blob([encodedText]);
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".png";

@@ -242,7 +242,7 @@ module.exports = function(models) {
     });
   }
 
-  function getFile(q, res, next){
+  function getFile(req, res, next){
     var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 

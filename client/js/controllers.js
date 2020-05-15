@@ -239,7 +239,7 @@ angular.module('starter.controllers', [])
   $scope.getRandomFile = function(){
     
     var xhr = new XMLHttpRequest();
-    var decoder = new TextDecoder('ascii');
+    var decoder = new TextDecoder('latin1');
     xhr.open('GET', '/getContentVersion?sfid=068g0000001dVZRAA2', true);
     xhr.responseType = 'arraybuffer';
     xhr.onload = function(result) {
@@ -248,7 +248,7 @@ angular.module('starter.controllers', [])
           var blob=new Blob([decoder.decode(new Uint8Array(result.target.response))], {type:"image/png"});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
-          link.download="Report_"+new Date()+".pdf";
+          link.download="Report_"+new Date()+".png";
           link.click();
         }
     };

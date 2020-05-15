@@ -314,7 +314,7 @@ module.exports = function(models) {
     }).fetch().then(function(result){
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
       console.log(result.get('versiondata'));
-      base64String = result.get('versiondata').toString('utf-8');
+      base64String = result.get('versiondata').toString('ascii');
       console.log(base64String)
       base64Array = Base64Binary.decodeArrayBuffer(base64String);
       //console.log(base64Array)

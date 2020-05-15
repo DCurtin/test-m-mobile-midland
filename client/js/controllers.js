@@ -253,8 +253,9 @@ angular.module('starter.controllers', [])
           var blob=new Blob([encodedText], {type: 'application/octet-stream'});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
-          link.download="Report_"+new Date()+".png";
-          link.click();
+          window.open(link.href);
+          //link.download="Report_"+new Date()+".png";
+          //link.click();
         }
     };
     xhr.send();

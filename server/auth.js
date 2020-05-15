@@ -243,6 +243,7 @@ module.exports = function(models) {
   }
 
   function getFile(req, res, next){
+    const { StringDecoder } = require('string_decoder')
     var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 
@@ -304,15 +305,16 @@ module.exports = function(models) {
       }
 
     var sfid = req.params['sfid'];
-    var decoder = new TextDecoder('windows-1252')  
-
+    //var decoder = new StringDecoder('windows-1252')  
+    
     models.contentVersion.query(function(qb){
       qb.where('sfid' , '=' , sfid);
     }).fetch().then(function(result){
       console.log('data: ' + result.length)
-      base64String = decoder.decode(new Uint8Array($result.versiondata));
+      //base64String = decoder.decode(new Uint8Array($result.versiondata));
+      base64String = (new Buffer(new Uint8Array($result.versiondata))).toString('utf-8');
       base64Array = Base64Binary.decodeArrayBuffer(base64String);
-      decodedString = decoder.decode(base64Array);
+      decodedString = (new Buffer(new Uint8Array(base64Array))).toString('utf-8');
       textBlob = new Blob([decodedString], {type: 'application/pdf'});
       res.status(200).json({blob: textBlob});
       //res.json();  

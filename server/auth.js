@@ -313,6 +313,7 @@ module.exports = function(models) {
       qb.where('sfid', '=', givenSfid)
     }).fetch().then(function(result){
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
+      console.log(result.get('versiondata'));
       base64String = (new Buffer(new Uint8Array(result.get('versiondata')))).toString('utf-8');
       console.log(base64String)
       base64Array = Base64Binary.decodeArrayBuffer(base64String);

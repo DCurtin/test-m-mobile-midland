@@ -317,7 +317,7 @@ module.exports = function(models) {
       console.log(base64String)
       base64Array = Base64Binary.decodeArrayBuffer(base64String);
       console.log(base64Array)
-      decodedString = (new Buffer(new Uint8Array(base64Array))).toString('utf-8');
+      decodedString = (new Buffer(new Uint8Array(base64Array))).toString('ascii');
       console.log(decodedString)
       //textBlob = new Blob([decodedString], {type: 'application/pdf'});
       res.status(200).json({blob: decodedString});

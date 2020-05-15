@@ -256,8 +256,8 @@ angular.module('starter.controllers', [])
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".png";
           link.header
-          window.open(link.href);
-          //link.click();
+          //window.open(link.href);
+          link.click();
         }
     };
     xhr.send();

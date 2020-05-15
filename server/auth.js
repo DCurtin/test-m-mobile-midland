@@ -309,7 +309,9 @@ module.exports = function(models) {
     //console.log(req.body);
     //var decoder = new StringDecoder('windows-1252')  
     
-    new models.contentVersion({'sfid' : givenSfid}).fetch().then(function(result){
+    models.contentVersion.query(function(qb) {
+      qb.where('sfid', '=', givenSfid)
+    }).fetch().then(function(result){
       console.log('data: ' + Object.keys(result))
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
       base64String = (new Buffer(new Uint8Array($result.versiondata))).toString('utf-8');

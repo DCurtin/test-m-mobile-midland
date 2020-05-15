@@ -241,14 +241,28 @@ module.exports = function(models) {
   }
 
   function getFile(req, res, next){
+    var Client = require('pg')
     var data = req.body;
-    console.log('id: ' + data.sfid);
+    var client = new Client(process.env.DATABASE_URL)
+    client.connect(function(err){
+      if(err){
+        console.log('error');
+      }else{
+        console.log('test')
+      }
+
+      client.query('SELECT id FROM salesforce.contentversion', function(err,res){
+        console.log(res);
+        res.json('test')
+      })
+    })
+    /*console.log('id: ' + data.sfid);
     models.contentVersion.query(function(qb){
       qb.where('sfid' , 'LIKE' ,'%'+data.sfid+'%');
     }).fetch({require:true ,columns:[id]}).then(function(result){
       console.log('data: ' + result.id)
       res.json(result);  
-    })
+    })*/
     /*new models.contentVersion().fetchOne().then(function(result){
       res.json(result);
     });*/

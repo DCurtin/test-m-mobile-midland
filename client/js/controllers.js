@@ -246,7 +246,7 @@ angular.module('starter.controllers', [])
     xhr.onload = function(result) {
         //console.log(result.respone)
         if (this.status == 200) {
-          var blob=new Blob([decoder.decode(new Uint8Array(result.target.response))], {encoding:"ANSI",type:"image/png;charset=ANSI"});
+          var blob=new Blob([decoder.decode(new Uint8Array(result.target.response))], {type:"image/png"});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".png";

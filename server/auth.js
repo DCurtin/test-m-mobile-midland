@@ -245,8 +245,8 @@ module.exports = function(models) {
     console.log('id: ' + data.sfid);
     models.contentVersion.query(function(qb){
       qb.where('sfid' , 'LIKE' ,'%'+data.sfid+'%');
-    }).fetch({columns:[sfid]}).then(function(result){
-      console.log('data: ' + result.sfid)
+    }).fetch({require:true ,columns:[id]}).then(function(result){
+      console.log('data: ' + result.id)
       res.json(result);  
     })
     /*new models.contentVersion().fetchOne().then(function(result){

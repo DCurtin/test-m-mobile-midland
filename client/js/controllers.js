@@ -247,7 +247,7 @@ angular.module('starter.controllers', [])
         //console.log(result.respone)
         if (this.status == 200) {
           console.log(decoder.decode(new Uint8Array(result.target.response)))
-          var blob=new Blob([decoder.decode(new Uint8Array(result.target.response))], {type: 'application/octet-stream;charset=ISO-8859-1',encoding: "ISO-8859-1"});
+          var blob=new Blob([decoder.decode(new Uint8Array(result.target.response))], {type: 'application/x-www-form-urlencoded;charset=UTF-16BE',encoding: "UTF-16BE"});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           link.download="Report_"+new Date()+".png";

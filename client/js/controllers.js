@@ -250,7 +250,7 @@ angular.module('starter.controllers', [])
           var decodedText = decoder.decode(new Uint8Array(result.target.response));
           var encodedText = encoder.encode(decodedText);
           console.log()
-          var blob=new Blob([encodedText], {type: 'application/octet-stream'});
+          var blob=new Blob([encodedText], {type: 'application/octet-stream', encoding:'ISO-8859-1'});
           var link=document.createElement('a');
           link.href=window.URL.createObjectURL(blob);
           window.open(link.href);

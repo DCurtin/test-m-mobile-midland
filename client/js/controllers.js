@@ -241,9 +241,9 @@ angular.module('starter.controllers', [])
     console.log(uploadedFile)
   }
 
-  $scope.handlefileinput = function(){
+  $scope.handlefileinput = function(result){
     console.log('test')
-    console.log(file);
+    console.log(result);
   }
 
   $scope.getRandomFile = function(){

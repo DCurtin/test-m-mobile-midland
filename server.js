@@ -17,7 +17,7 @@ var http           = require('http'),
     multer         = require('multer');
     ;
 
-    var upload = multer({dest: 'uploads/'})
+    var upload = multer({dest: './uploads/'})
 
 /********************* APP SETUP *****************************/
 

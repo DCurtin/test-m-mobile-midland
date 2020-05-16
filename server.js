@@ -73,6 +73,7 @@ app.post('/sfauth', auth.sfAuth);
 app.post('/getAccounts', auth.getAccounts);
 app.post('/createTrans', auth.generate_transaction);
 app.get('/getContentVersion', auth.getFile);
+app.post('/uplloadFile', auth.uploadFile);
 
 app.all('/resource/*', auth.authenticate);
 

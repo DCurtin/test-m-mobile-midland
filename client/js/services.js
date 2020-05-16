@@ -104,7 +104,8 @@ angular.module('starter.services', [])
       const reader = new FileReader();
       
       reader.addEventListener("load", ()=>{
-        console.log(reader.result);
+        //console.log(reader.result);
+        $http.post('/uplloadFile', reader.result);
       }, false)
 
 

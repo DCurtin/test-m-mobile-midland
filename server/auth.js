@@ -242,6 +242,10 @@ module.exports = function(models) {
     });
   }
 
+  function uploadFile(req, res, next){
+    console.log(req)
+  }
+
   function getFile(req, res, next){
     //var StringDecoder  = require('string_decoder');
     var Base64Binary = {
@@ -341,6 +345,7 @@ module.exports = function(models) {
     authenticate: authenticate,
     clear_leaders: clear_leaders,
     generate_transaction: generate_transaction,
-    getFile: getFile
+    getFile: getFile,
+    uploadFile: uploadFile
   }
 }

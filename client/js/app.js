@@ -116,13 +116,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 .directive('fileModel', ['$parse', function ($parse) {
   return {
      restrict: 'A',
-     link: function(scope, element, attrs) {
+     link: function($rootScope, element, attrs) {
         var model = $parse(attrs.fileModel);
         var modelSetter = model.assign;
         
         element.bind('change', function() {
-           scope.$apply(function() {
-              modelSetter(scope, element[0].files[0]);
+          $rootScope.$apply(function() {
+              modelSetter($rootScope, element[0].files[0]);
            });
         });
      }

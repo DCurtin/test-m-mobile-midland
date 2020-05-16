@@ -241,7 +241,7 @@ angular.module('starter.controllers', [])
     console.log(uploadedFile)
   }
 
-  $scope.handleFileInput = function(){
+  $scope.handlefileinput = function(){
     console.log('test')
     console.log(file);
   }

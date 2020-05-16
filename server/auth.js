@@ -243,7 +243,7 @@ module.exports = function(models) {
   }
 
   function uploadFile(req, res, next){
-    console.log(Object.keys(req.params))
+    console.log(req.body)
   }
 
   function getFile(req, res, next){

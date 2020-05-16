@@ -30,9 +30,9 @@
             <label for="file">Choose File</label>
             <input type="file"
                     id="file"
-                    ng-change="handleFileInput()"
+                    ng-change="angular.element(this).scope().handleFileInput()"
                     ng-model="uploadedFile">
-                <button class="button" ng-click="angular.element(this).scope().handleFileInput()"></button>
+                <button class="button" ng-click="uploadFile()"></button>
         </div>
         
         <div class="list list-inset" style="margin-bottom: 10px;">

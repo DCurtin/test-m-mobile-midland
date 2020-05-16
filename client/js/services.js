@@ -106,10 +106,11 @@ angular.module('starter.services', [])
       reader.addEventListener("load", ()=>{
         //console.log(reader.result);
         var fd = new FormData();
+        console.log(reader.result)
         fd.append('file', reader.result);
         $http.post('/uplloadFile', fd, {
           transformRequest: angular.identity,
-          headers: {'Content-Type': undefined}      
+          headers: {'Content-Type': undefined}
         });
       }, false)
 

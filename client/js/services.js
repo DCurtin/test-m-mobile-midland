@@ -105,7 +105,11 @@ angular.module('starter.services', [])
       
       reader.addEventListener("load", ()=>{
         //console.log(reader.result);
-        $http.post('/uplloadFile', reader.result);
+        var fd = new FormData();
+        fd.append('file', reader.result);
+        fd.append('filetype', 'png');
+        fd.append('f', 'json');
+        $http.post('/uplloadFile', fd);
       }, false)
 
 

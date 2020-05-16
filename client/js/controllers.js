@@ -238,13 +238,11 @@ angular.module('starter.controllers', [])
   }
 
   $scope.uploadFile = function(){
-    console.log(this.uploadedFile)
+    var thing = this.uploadedFile
+    //.log(this.uploadedFile)
     //RegistrationService.uploadFile();
-  }
-
-  $scope.handlefileinput = function(result){
-    console.log('test')
-    console.log(result);
+    var objectUrl = URL.createObjectURL(thing);
+    window.open(objectUrl);
   }
 
   $scope.getRandomFile = function(){

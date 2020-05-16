@@ -32,7 +32,7 @@
                     id="file"
                     ng-change="handleFileInput()"
                     ng-model="uploadedFile">
-                <button class="button" ng-click="uploadFile()"></button>
+                <button class="button" ng-click="angular.element(this).scope().handleFileInput()"></button>
         </div>
         
         <div class="list list-inset" style="margin-bottom: 10px;">

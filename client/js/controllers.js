@@ -238,8 +238,8 @@ angular.module('starter.controllers', [])
   }
 
   $scope.uploadFile = function(){
-    //console.log($scope.uploadedFile)
-    RegistrationService.uploadFile();
+    console.log($scope.uploadedFile)
+    //RegistrationService.uploadFile();
   }
 
   $scope.handlefileinput = function(result){

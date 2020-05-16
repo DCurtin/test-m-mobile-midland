@@ -28,10 +28,8 @@
     
         <div class="form-group">
             <label for="file">Choose File</label>
-            <input type="file"
-                    id="file"
-                    onchange="angular.element(this).scope().handlefileinput(this)">
-                <button class="button" ng-click="uploadFile()"></button>
+            <input type = "file" file-model = "uploadedFile"/>
+            <button ng-click = "uploadFile()">upload me</button>
         </div>
         
         <div class="list list-inset" style="margin-bottom: 10px;">

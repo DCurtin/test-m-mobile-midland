@@ -212,7 +212,7 @@ angular.module('starter.controllers', [])
 .controller('TestCtrl', function($scope, $ionicPopup, $location, $sce, RegistrationService){
   console.log('test');
   var user = $scope.user;
-  var uploadedFile;
+  $scope.uploadedFile = '';
   $scope.getAccounts = function(){
     console.log('getting accounts');
     RegistrationService.getAccounts().then(function(result){

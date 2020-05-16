@@ -25,15 +25,16 @@
                 Get Dedicated Rep Accounts
             </button>
         </div>
-        <ion-button expand="full">
-            <div class="form-group">
-                <label for="file">Choose File</label>
-                <input type="file"
-                       id="file"
-                       ng-change="handleFileInput()"
-                       ng-model="uploadedFile">
-            </div>
-        </ion-button>
+    
+        <div class="form-group">
+            <label for="file">Choose File</label>
+            <input type="file"
+                    id="file"
+                    ng-change="handleFileInput()"
+                    ng-model="uploadedFile">
+                <button class="button" ng-click="uploadFile()"></button>
+        </div>
+        
         <div class="list list-inset" style="margin-bottom: 10px;">
             <div class="row header">
              <div class="col">Salesforce Id</div>

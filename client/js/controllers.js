@@ -237,6 +237,10 @@ angular.module('starter.controllers', [])
     });
   }
 
+  $scope.uploadFile = function(){
+    console.log(uploadedFile)
+  }
+
   $scope.handleFileInput = function(file){
     console.log('test')
     console.log(file);

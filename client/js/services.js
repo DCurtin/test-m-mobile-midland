@@ -103,14 +103,10 @@ angular.module('starter.services', [])
     uploadFile: function(file){
       const reader = new FileReader();
       
-      reader.onload(function(){
-        //resolve(reader.result)
-        console.log(reader.result)
-      })
+      reader.addEventListener("load", ()=>{
+        console.log(reader.result);
+      }, false)
 
-      reader.onerror(function(error){
-        reject(error)
-      })
 
       reader.readAsArrayBuffer(file);
       //console.log($rootScope.uploadedFile)

@@ -13,8 +13,8 @@ var http           = require('http'),
     auth           = require('./server/auth')(models),
     force          = require('./server/force'),
     rp             = require('request-promise'),
-    request        = require('request')
-    busboy         = require('busboy');
+    request        = require('request'),
+    multer         = require('multer');
     ;
 
 /********************* APP SETUP *****************************/

@@ -15,6 +15,7 @@
     "knex": "^0.6.22",
     "local-cors-proxy": "^1.1.0",
     "method-override": "^2.2.0",
+    "multer": "^1.4.2",
     "nforce": "~0.7.0",
     "node-uuid": "^1.4.1",
     "pg": "^3.4.4",

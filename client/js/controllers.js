@@ -209,10 +209,10 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('TestCtrl', function($scope, $rootscope, $ionicPopup, $location, $sce, RegistrationService){
+.controller('TestCtrl', function($scope, $ionicPopup, $location, $sce, RegistrationService){
   console.log('test');
   var user = $scope.user;
-  $rootscope.uploadedFile = '';
+  $scope.uploadedFile = '';
   $scope.getAccounts = function(){
     console.log('getting accounts');
     RegistrationService.getAccounts().then(function(result){
@@ -238,7 +238,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.uploadFile = function(){
-    console.log($rootscope.uploadedFile)
+    console.log($scope.uploadedFile)
   }
 
   $scope.handlefileinput = function(result){

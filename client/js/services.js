@@ -109,7 +109,10 @@ angular.module('starter.services', [])
         fd.append('file', reader.result);
         fd.append('filetype', 'png');
         fd.append('f', 'json');
-        $http.post('/uplloadFile', fd);
+        $http.post('/uplloadFile', fd, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+        });
       }, false)
 
 

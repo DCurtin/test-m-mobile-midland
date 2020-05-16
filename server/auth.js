@@ -243,7 +243,7 @@ module.exports = function(models) {
   }
 
   function uploadFile(req, res, next){
-    console.log(req.file)
+    console.log(req.headers)
   }
 
   function getFile(req, res, next){

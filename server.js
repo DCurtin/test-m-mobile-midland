@@ -76,7 +76,7 @@ app.post('/sfauth', auth.sfAuth);
 app.post('/getAccounts', auth.getAccounts);
 app.post('/createTrans', auth.generate_transaction);
 app.get('/getContentVersion', auth.getFile);
-app.post('/uplloadFile', upload.single('sf-file'), auth.uploadFile);
+app.post('/uplloadFile', upload.single('file'), auth.uploadFile);
 
 app.all('/resource/*', auth.authenticate);
 

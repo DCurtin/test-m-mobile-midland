@@ -246,7 +246,6 @@ module.exports = function(models) {
     console.log(req.body)
     console.log(req.files)
     console.log(req.file)
-    console.log(req.get('sf-file'))
   }
 
   function getFile(req, res, next){

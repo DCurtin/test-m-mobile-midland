@@ -14,7 +14,8 @@ var http           = require('http'),
     force          = require('./server/force'),
     rp             = require('request-promise'),
     request        = require('request'),
-    multer         = require('multer');
+    formidable     = require('formidable');
+    //multer         = require('multer');
     ;
 
 /********************* APP SETUP *****************************/
@@ -33,7 +34,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-var upload = multer({ 
+/*var upload = multer({ 
   dest: './uploads/',
   rename: function (fieldname, filename) {
       return filename.replace(/\W+/g, '-').toLowerCase() + Date.now()
@@ -47,7 +48,7 @@ var upload = multer({
   onFileUploadComplete: function (file) {
       console.log(file.fieldname + ' uploaded to  ' + file.path)
   }
-});
+});*/
 
 io = require('socket.io')(server);
 
@@ -90,7 +91,7 @@ app.post('/sfauth', auth.sfAuth);
 app.post('/getAccounts', auth.getAccounts);
 app.post('/createTrans', auth.generate_transaction);
 app.get('/getContentVersion', auth.getFile);
-app.post('/uplloadFile', upload.single('file'), auth.uploadFile);
+app.post('/uplloadFile', auth.uploadFile);
 //app.post('/uplloadFile', auth.uploadFile);
 
 app.all('/resource/*', auth.authenticate);

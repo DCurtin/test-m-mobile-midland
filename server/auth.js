@@ -243,6 +243,11 @@ module.exports = function(models) {
   }
 
   function uploadFile(req, res, next){
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files){
+      console.log(files);
+      console.log(fields);
+    })
     console.log(req.body)
     console.log(req.body.file)
     console.log(Object.keys(req))

@@ -209,7 +209,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('TestCtrl', function($scope, $ionicPopup, $location, $sce, scope, RegistrationService){
+.controller('TestCtrl', function($scope, $rootscope, $ionicPopup, $location, $sce, RegistrationService){
   console.log('test');
   var user = $scope.user;
   $scope.uploadedFile = '';

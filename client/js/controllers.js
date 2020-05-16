@@ -238,7 +238,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.uploadFile = function(){
-    console.log($scope.uploadedFile)
+    console.log($rootscope.uploadedFile)
   }
 
   $scope.handlefileinput = function(result){

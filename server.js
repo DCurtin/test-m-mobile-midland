@@ -17,8 +17,6 @@ var http           = require('http'),
     multer         = require('multer');
     ;
 
-    var upload = multer({dest: './uploads/'})
-
 /********************* APP SETUP *****************************/
 
 app = express();
@@ -35,7 +33,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(multer({ 
+var upload = multer({ 
   dest: './uploads/',
   rename: function (fieldname, filename) {
       return filename.replace(/\W+/g, '-').toLowerCase() + Date.now()
@@ -49,7 +47,7 @@ app.use(multer({
   onFileUploadComplete: function (file) {
       console.log(file.fieldname + ' uploaded to  ' + file.path)
   }
-}));
+});
 
 io = require('socket.io')(server);
 

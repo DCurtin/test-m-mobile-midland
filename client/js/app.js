@@ -40,6 +40,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 })
 
+.directive('fileModel', ['$parse', function ($parse) {
+  return {
+     restrict: 'A',
+     link: function(scope, element, attrs) {
+        var model = $parse(attrs.fileModel);
+        var modelSetter = model.assign;
+        
+        element.bind('change', function() {
+          scope.$apply(function() {
+              modelSetter(scope, element[0].files[0]);
+           });
+        });
+     }
+  };
+}])
+
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -111,20 +127,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Register middleware to ensure our auth token is passed to the server
   $httpProvider.interceptors.push('TokenInterceptor');
 
-})
-
-.directive('fileModel', ['$parse', function ($parse) {
-  return {
-     restrict: 'A',
-     link: function(scope, element, attrs) {
-        var model = $parse(attrs.fileModel);
-        var modelSetter = model.assign;
-        
-        element.bind('change', function() {
-          scope.$apply(function() {
-              modelSetter(scope, element[0].files[0]);
-           });
-        });
-     }
-  };
-}]);
+});

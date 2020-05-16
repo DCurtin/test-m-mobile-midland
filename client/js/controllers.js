@@ -236,6 +236,10 @@ angular.module('starter.controllers', [])
     });
   }
 
+  $scope.handleFileInput = function(file){
+    console.log(file);
+  }
+
   $scope.getRandomFile = function(){
     
     var xhr = new XMLHttpRequest();

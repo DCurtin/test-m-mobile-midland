@@ -100,8 +100,22 @@ angular.module('starter.services', [])
       })
     },
 
-    uploadFile: function(){
-      console.log($rootScope.uploadedFile)
+    uploadFile: function(file){
+      const reader = new FileReader();
+      
+      reader.onload(function(){
+        //resolve(reader.result)
+        console.log(reader.result)
+      })
+
+      reader.onerror(function(error){
+        reject(error)
+      })
+
+      reader.readAsArrayBuffer(file);
+      //console.log($rootScope.uploadedFile)
+
+
     },
 
     login: function() {

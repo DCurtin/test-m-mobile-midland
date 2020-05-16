@@ -244,7 +244,7 @@ module.exports = function(models) {
 
   function uploadFile(req, res, next){
     console.log(req.body)
-    console.log(req.file)
+    console.log(req.files)
   }
 
   function getFile(req, res, next){

@@ -107,7 +107,7 @@ angular.module('starter.services', [])
         //console.log(reader.result);
         var fd = new FormData();
         console.log(reader.result)
-        fd.append('file', reader.result);
+        fd.append('image', reader.result, 'image.png');
         $http.post('/uplloadFile', fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}

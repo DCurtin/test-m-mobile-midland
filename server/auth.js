@@ -308,9 +308,10 @@ module.exports = function(models) {
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
-        var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
+        //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
+        
         console.log(data)
-        console.log(base64EncodedBinary)
+        console.log(data.toString('utf-8'))
         new models.contentVersion({   versiondata:data,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',

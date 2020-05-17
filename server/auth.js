@@ -309,7 +309,8 @@ module.exports = function(models) {
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
         const {Cu} = require("chrome");
-        const {TextEncoder, OS} = Cu.import("resource://gre/modules/osfile.jsm", {});
+        const {TextEncoder} = Cu.import("resource://gre/modules/osfile.jsm", {});
+        var encoder = new TextEncoder();
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
         
         //var buffer = str2ab(data.toString('base64'));

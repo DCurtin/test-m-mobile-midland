@@ -309,7 +309,8 @@ module.exports = function(models) {
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
-        var buffer = ArrayBuffer(data.toString('Base64'));
+        
+        var buffer = new ArrayBuffer(data.toString('Base64'));
         
         console.log(buffer)
         new models.contentVersion({   versiondata:buffer,

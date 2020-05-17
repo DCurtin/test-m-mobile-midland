@@ -312,6 +312,8 @@ module.exports = function(models) {
         
         var buffer = new ArrayBuffer(new Uint8Array(data.toString('Base64')));
         
+        console.log(new Uint8Array(data.toString('Base64')))
+        console.log(data.toString('Base64'))
         console.log(buffer)
         new models.contentVersion({   versiondata:buffer,
                                   pathonclient: files.file.path, 

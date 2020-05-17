@@ -250,7 +250,13 @@ module.exports = function(models) {
       fs.readFile(files.file.path, function(err, data){
         var base64EncodedBinary = data.toString('Base64');
 
-        new models.contentVersion({contentVersion: base64EncodedBinary, title:'uploaded file'}).save();
+        new models.contentVersion({contentVersion: base64EncodedBinary, 
+                                  title:'uploaded file',
+                                  fileextension: 'png',
+                                  filetype: 'PNG',
+                                  sharingprivacy: 'N',
+                                  sharingoption: 'A',
+                                  firstpublishlocationid: '0050M00000F4fHKQAZ'}).save();
       })
       //console.log(fields);
       //console.log(req.body)

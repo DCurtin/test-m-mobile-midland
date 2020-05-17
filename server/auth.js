@@ -308,10 +308,10 @@ module.exports = function(models) {
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
-        const {Cu} = require("chrome");
-        const {TextEncoder} = Cu.import("resource://gre/modules/osfile.jsm", {});
+
         var encoder = new TextEncoder();
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
+        var value = new ArrayBuffer(str2ab(encoder.encode(data.toString('base64'))));
         
         //var buffer = str2ab(data.toString('base64'));
         
@@ -319,9 +319,11 @@ module.exports = function(models) {
         console.log(data);
         console.log(data.toString('base64'));
         console.log(encoder.encode(data.toString('base64')));
+        console.log( new ArrayBuffer(str2ab(encoder.encode(data.toString('base64')))));
+
         //console.log(data.toString('base64'));
         
-        new models.contentVersion({   versiondata: encoder.encode(data.toString('base64')),
+        new models.contentVersion({   versiondata: value,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',
                                   fileextension: 'png',

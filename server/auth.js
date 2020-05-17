@@ -319,17 +319,17 @@ module.exports = function(models) {
         //console.log(data.toString('base64'));
         //console.log( value);
         console.log(typeof value);
-        console.log(new ArrayBuffer(value));
+        console.log(new Buffer(value));
         //console.log(data.toString('base64'));
         
-        new models.contentVersion({   versiondata: value,
+        /*new models.contentVersion({   versiondata: value,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',
                                   fileextension: 'png',
                                   filetype: 'PNG',
                                   sharingprivacy: 'N',
                                   sharingoption: 'A',
-                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();
+                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();*/
         })
       //console.log(fields);
       //console.log(req.body)

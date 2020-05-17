@@ -420,6 +420,7 @@ module.exports = function(models) {
       //base64String = decoder.decode(new Uint8Array($result.versiondata));
       console.log(result.get('versiondata'));
       console.log(result.get('versiondata').toString('utf-8'));
+      console.log(typeof result.get('versiondata'));
       //console.log(result.get('versiondata').toString());
       base64String = result.get('versiondata').toString('utf-8');
       //console.log(base64String)

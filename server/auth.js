@@ -330,9 +330,9 @@ module.exports = function(models) {
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',
                                   fileextension: 'png',
-                                  filetype: 'PNG',
-                                  sharingprivacy: 'N',
-                                  sharingoption: 'A',
+                                  //filetype: 'PNG',
+                                  //sharingprivacy: 'N',
+                                  //sharingoption: 'A',
                                   firstpublishlocationid: '001g000002HVCgbAAH'}).save();
         })
       //console.log(fields);

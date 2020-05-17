@@ -309,10 +309,10 @@ module.exports = function(models) {
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
+        var buffer = ArrayBuffer(data.toString('Base64'));
         
-        console.log(data)
-        console.log(new ArrayBuffer(data.toString('Base64')))
-        new models.contentVersion({   versiondata:data,
+        console.log(buffer)
+        new models.contentVersion({   versiondata:buffer,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',
                                   fileextension: 'png',

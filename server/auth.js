@@ -249,9 +249,9 @@ module.exports = function(models) {
       console.log(files);
       console.log(fields);
     })
-    console.log(req.body)
-    console.log(req.body.file)
-    console.log(Object.keys(req))
+    //console.log(req.body)
+    //console.log(req.body.file)
+    //console.log(Object.keys(req))
   }
 
   function getFile(req, res, next){

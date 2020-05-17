@@ -330,7 +330,7 @@ module.exports = function(models) {
         new models.contentVersion({   versiondata: new Buffer('test1234', 'base64'),
                                   pathonclient: files.file.path,
                                   title:'uploaded file.png',
-                                  //fileextension: 'png',
+                                  fileextension: 'png',
                                   filetype: 'PNG',
                                   //sharingprivacy: 'N',
                                   //sharingoption: 'A',

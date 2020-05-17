@@ -111,7 +111,8 @@ angular.module('starter.services', [])
         fd.append('file', image);
         $http.post('/uplloadFile', fd, {
           transformRequest: angular.identity,
-          headers: {'Content-Type': undefined}
+          headers: {'Content-Type': undefined,
+                    'Authorization': $window.localStorage.token}
         });
       }, false)
 

@@ -247,17 +247,17 @@ module.exports = function(models) {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
-      fs.readFile(files.file.path, function(err, data){
-        var base64EncodedBinary = data.toString('Base64');
+      //fs.readFile(files.file.path, function(err, data){
+        //var base64EncodedBinary = data.toString('Base64');
 
-        new models.contentVersion({versiondata: base64EncodedBinary, 
+    new models.contentVersion({PathOnClient: files.file.path, 
                                   title:'uploaded file',
                                   fileextension: 'png',
                                   filetype: 'PNG',
                                   sharingprivacy: 'N',
                                   sharingoption: 'A',
                                   firstpublishlocationid: '0050M00000F4fHKQAZ'}).save();
-      })
+      //})
       //console.log(fields);
       //console.log(req.body)
     })

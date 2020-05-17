@@ -349,7 +349,7 @@ module.exports = function(models) {
         }
         // -H "Authorization: Bearer token" -H "Content-Type: multipart/form-data; boundary=\"boundary_string\"" --data-binary @newdocument.json
         var rp  = require('request-promise');
-        rq(options).then(function(result){
+        rp(options).then(function(result){
           console.log(result)
         })
       })

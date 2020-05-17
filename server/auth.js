@@ -315,6 +315,7 @@ module.exports = function(models) {
         //console.log(new Uint8Array(data.toString('Base64')))
         console.log(buffer);
         //console.log(data.toString('base64'));
+        /*
         new models.contentVersion({   versiondata:buffer,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',
@@ -322,7 +323,7 @@ module.exports = function(models) {
                                   filetype: 'PNG',
                                   sharingprivacy: 'N',
                                   sharingoption: 'A',
-                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();
+                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();*/
         })
       //console.log(fields);
       //console.log(req.body)

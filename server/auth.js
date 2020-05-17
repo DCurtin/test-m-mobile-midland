@@ -250,7 +250,6 @@ module.exports = function(models) {
       fs.readFile(files.file.path, function(err, data){
         console.log(data);
       })
-      files.file.path
       //console.log(fields);
       //console.log(req.body)
     })

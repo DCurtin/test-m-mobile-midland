@@ -250,6 +250,7 @@ module.exports = function(models) {
       fs.readFile(files.file.path, function(err, data){
         var base64EncodedBinary = data.toString('Base64');
         console.log(data)
+        console.log(base64EncodedBinary)
         /*new models.contentVersion({   versiondata:data,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file',

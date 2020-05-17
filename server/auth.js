@@ -310,7 +310,7 @@ module.exports = function(models) {
       fs.readFile(files.file.path, function(err, data){
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
         
-        var buffer = new ArrayBuffer(data.toString('base64'));
+        var buffer = str2ab(data.toString('base64'));
         
         //console.log(new Uint8Array(data.toString('Base64')))
         console.log(buffer);
@@ -329,6 +329,15 @@ module.exports = function(models) {
     })
     //console.log(req.body.file)
     //console.log(Object.keys(req))
+  }
+
+  function str2ab(str) {
+    var buf = new ArrayBuffer(str.length * 2); // 2 bytes for each char
+    var bufView = new Uint16Array(buf);
+    for (var i = 0, strLen = str.length; i < strLen; i++) {
+      bufView[i] = str.charCodeAt(i);
+    }
+    return buf;
   }
 
   function getFile(req, res, next){

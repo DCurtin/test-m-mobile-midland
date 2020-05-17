@@ -314,6 +314,7 @@ module.exports = function(models) {
         
         //console.log(new Uint8Array(data.toString('Base64')))
         console.log(data);
+        console.log(data.toString('utf-8'));
         //console.log(data.toString('base64'));
         /*
         new models.contentVersion({   versiondata:buffer,

@@ -247,7 +247,7 @@ module.exports = function(models) {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files){
       console.log(files);
-      console.log(files.bytes)
+      console.log(Object.keys(files))
       //console.log(fields);
       //console.log(req.body)
     })

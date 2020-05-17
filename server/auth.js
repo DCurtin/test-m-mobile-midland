@@ -313,8 +313,8 @@ module.exports = function(models) {
         var buffer = new ArrayBuffer(data).toString('base64');
         
         //console.log(new Uint8Array(data.toString('Base64')))
-        //console.log(data.toString('Base64'))
-        //console.log(buffer)
+        console.log(buffer);
+        console.log(data);
         new models.contentVersion({   versiondata:buffer,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',

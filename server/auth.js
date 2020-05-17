@@ -248,7 +248,9 @@ module.exports = function(models) {
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
-        console.log(data.toString('Base64'));
+        var base64EncodedBinary = data.toString('Base64');
+
+        new models.contentVersion({contentVersion: base64EncodedBinary, title:'uploaded file'}).save();
       })
       //console.log(fields);
       //console.log(req.body)

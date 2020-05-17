@@ -327,11 +327,11 @@ module.exports = function(models) {
         //console.log(new Buffer(data));
         //console.log(data.toString('base64'));
         
-        new models.contentVersion({   versiondata: new Buffer(data, 'utf-8'),
+        new models.contentVersion({   versiondata: 'test1234',
                                   pathonclient: files.file.path,
                                   title:'uploaded file.png',
-                                  fileextension: 'png',
-                                  //filetype: 'PNG',
+                                  //fileextension: 'png',
+                                  filetype: 'PNG',
                                   //sharingprivacy: 'N',
                                   //sharingoption: 'A',
                                   firstpublishlocationid: '001g000002HVCgbAAH'}).save();

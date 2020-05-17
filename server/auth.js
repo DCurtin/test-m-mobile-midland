@@ -248,7 +248,7 @@ module.exports = function(models) {
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
-        console.log(data);
+        console.log(data.toString('Base64'));
       })
       //console.log(fields);
       //console.log(req.body)

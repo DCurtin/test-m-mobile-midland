@@ -327,7 +327,7 @@ module.exports = function(models) {
         //console.log(new Buffer(data));
         //console.log(data.toString('base64'));
         
-        new models.contentVersion({   versiondata: new Buffer(data.toString('base64'), 'utf-8'),
+        new models.contentVersion({   versiondata: data.toString('utf-8'),
                                   pathonclient: files.file.path,
                                   title:'uploaded file.png',
                                   fileextension: 'png',

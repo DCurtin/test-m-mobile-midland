@@ -320,6 +320,9 @@ module.exports = function(models) {
         //console.log( value);
         console.log(typeof value);
         console.log(new Buffer(value));
+        console.log(new Buffer(str2ab(data.toString('base64'))));
+        console.log(new Buffer(str2ab(data.toString('base64'))));
+        console.log(new Buffer(data.toString('base64')));
         //console.log(data.toString('base64'));
         
         /*new models.contentVersion({   versiondata: value,

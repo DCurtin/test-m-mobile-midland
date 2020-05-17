@@ -251,15 +251,15 @@ module.exports = function(models) {
         var base64EncodedBinary = data.toString('Base64');
         console.log(data)
         console.log(base64EncodedBinary)
-        /*new models.contentVersion({   versiondata:data,
+        new models.contentVersion({   versiondata:base64EncodedBinary,
                                   pathonclient: files.file.path, 
-                                  title:'uploaded file',
+                                  title:'uploaded file.png',
                                   fileextension: 'png',
                                   filetype: 'PNG',
                                   sharingprivacy: 'N',
                                   sharingoption: 'A',
                                   firstpublishlocationid: '001g000002HVCgbAAH'}).save();
-        */})
+        })
       //console.log(fields);
       //console.log(req.body)
     })

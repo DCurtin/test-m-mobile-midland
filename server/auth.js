@@ -323,18 +323,18 @@ module.exports = function(models) {
         //console.log(new Buffer(str2ab(data.toString('base64'))));
         //console.log(new Buffer(str2ab(data.toString('base64'))));
         console.log(new Buffer(data.toString('base64')));
-        console.log(data.toString('base64'));
+        console.log(new Buffer(data, 'base64'));
         //console.log(new Buffer(data));
         //console.log(data.toString('base64'));
         
-        new models.contentVersion({   versiondata: data.toString('base64'),
+        /*new models.contentVersion({   versiondata: data.toString('base64'),
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',
                                   fileextension: 'png',
                                   //filetype: 'PNG',
                                   //sharingprivacy: 'N',
                                   //sharingoption: 'A',
-                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();
+                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();*/
         })
       //console.log(fields);
       //console.log(req.body)

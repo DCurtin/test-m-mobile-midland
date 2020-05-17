@@ -309,7 +309,6 @@ module.exports = function(models) {
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
 
-        var encoder = new TextEncoder();
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
         var value = new ArrayBuffer(str2ab(encoder.encode(data.toString('base64'))));
         

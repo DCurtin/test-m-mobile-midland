@@ -243,7 +243,7 @@ module.exports = function(models) {
   }
 
   function uploadFile(req, res, next){
-    let formidable = require('formidable');
+    var formidable = require('formidable');
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files){
       console.log(files);

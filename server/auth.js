@@ -315,9 +315,9 @@ module.exports = function(models) {
         //var buffer = str2ab(data.toString('base64'));
         
         //console.log(new Uint8Array(data.toString('Base64')))
-        console.log(data);
-        console.log(data.toString('base64'));
-        console.log( value);
+        //console.log(data);
+        //console.log(data.toString('base64'));
+        //console.log( value);
         console.log(typeof value);
         console.log(new ArrayBuffer(value));
         //console.log(data.toString('base64'));

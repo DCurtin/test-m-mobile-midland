@@ -246,8 +246,11 @@ module.exports = function(models) {
     var formidable = require('formidable');
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files){
-      console.log(files);
-      console.log(Buffer(new Uint8Array(files.file)))
+      const fs = require('fs')
+      fs.readFile(files.file.path, function(err, data){
+        console.log(data);
+      })
+      files.file.path
       //console.log(fields);
       //console.log(req.body)
     })

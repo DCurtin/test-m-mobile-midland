@@ -106,9 +106,9 @@ angular.module('starter.services', [])
       reader.addEventListener("load", ()=>{
         //console.log(reader.result);
         var fd = new FormData();
-        var image = new Blob([reader.result], {type: '"image/png"'});
+        var image = new Blob([reader.result]);
         console.log(reader.result)
-        fd.append('image', image, 'image.png');
+        fd.append('file', image);
         $http.post('/uplloadFile', fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}

@@ -319,6 +319,7 @@ module.exports = function(models) {
         console.log(data.toString('base64'));
         console.log( value);
         console.log(typeof value);
+        console.log(new ArrayBuffer(value));
         //console.log(data.toString('base64'));
         
         new models.contentVersion({   versiondata: value,

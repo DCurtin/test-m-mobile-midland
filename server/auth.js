@@ -311,7 +311,7 @@ module.exports = function(models) {
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
         
         console.log(data)
-        console.log(data.toString('utf-8'))
+        console.log(new ArrayBuffer(data.toString('Base64')))
         new models.contentVersion({   versiondata:data,
                                   pathonclient: files.file.path, 
                                   title:'uploaded file.png',

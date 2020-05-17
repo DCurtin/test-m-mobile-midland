@@ -257,7 +257,7 @@ module.exports = function(models) {
                                   filetype: 'PNG',
                                   sharingprivacy: 'N',
                                   sharingoption: 'A',
-                                  firstpublishlocationid: '0050M00000F4fHKQAZ'}).save();
+                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();
       })
       //console.log(fields);
       //console.log(req.body)

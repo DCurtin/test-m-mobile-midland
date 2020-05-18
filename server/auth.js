@@ -319,7 +319,7 @@ module.exports = function(models) {
         var fileDataString = '{' + ending + '"Description" : "Marketing brochure for Q1 2011",' + ending + '"FolderId" : "00l30000001DWP3AAO",' + ending + '"Name" : "Marketing Brochure Q1",' + ending + '"Type" : "png"' + ending + '}'
 
         var start = '--' + boundaryString + ending + ' Content-Disposition : form-data; name="entity_content";' + ending + ' Content-Type: application/json' + ending + ending + JSON.stringify(fileData) + ending + ending;
-        var end = '--' + boundaryString + ending + ' Content-Type: application/octet-stream' + ending + ' Content-Disposition: form-data; name="VersionData"; filename="Q1 Sales Brochure.png"' + ending + ending
+        var end = '--' + boundaryString + ending + ' Content-Type: application/pdf' + ending + ' Content-Disposition: form-data; name="VersionData"; filename="Q1 Sales Brochure.png"' + ending + ending
         var binary = data.toString('binary') + ending + ending;
         console.log(req.get('Authorization'))
         var payload = start + end + binary  + '--' + boundaryString + '--'

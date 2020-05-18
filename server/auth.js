@@ -323,11 +323,11 @@ module.exports = function(models) {
         console.log(req.get('Authorization'))
         var payload = start + end + binary + ' ' + boundaryString
         var url  = 'https://entrust--dcurtin.lightning.force.com/services/data/v23.0/sobjects/Document'
-        console.log(req.params.Authorization)
+        //console.log(req.params.Authorization)
         var options = {
           uri: url,
           headers: {
-            'Authorization': 'Authorization: OAuth' + req.get('Authorization'),
+            'Authorization': 'Authorization:' + req.get('Authorization'),
             'Content-Type':  'multipart/form-data boundary=' + boundaryString 
           },
           body: payload,

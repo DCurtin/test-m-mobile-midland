@@ -113,6 +113,8 @@ angular.module('starter.services', [])
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined,
                     'Authorization': $window.localStorage.token}
+        }).then(function(result){
+          console.log(result)
         });
       }, false)
 

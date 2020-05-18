@@ -328,7 +328,7 @@ module.exports = function(models) {
         //console.log(new Buffer(data, 'base64'));
         //console.log(new Buffer(data));
         //console.log(data.toString('base64'));
-        console.log(new Buffer(data).toString('base64'))
+        //console.log(new Buffer(data).toString('base64'))
         /*new models.contentVersion({   versiondata: new Buffer(new Buffer(data).toString('base64')),//new Buffer('test1234', 'base64'),
                                   pathonclient: files.file.path,
                                   title:'uploaded file.png',
@@ -350,7 +350,12 @@ module.exports = function(models) {
         // -H "Authorization: Bearer token" -H "Content-Type: multipart/form-data; boundary=\"boundary_string\"" --data-binary @newdocument.json
         var rp  = require('request-promise');
         rp(options).then(function(result){
-          console.log(result)
+          console.log(result.status)
+          if(result.status == 411)
+          {
+            console.log(result)
+            res.status(411).send(result);
+          }
         })
       })
       //console.log(fields);

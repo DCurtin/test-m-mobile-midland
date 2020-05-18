@@ -503,9 +503,9 @@ module.exports = function(models) {
       res.status(200).send(new Buffer(new Uint8Array(base64Array)));
       //res.json();  
     })
-    new models.contentVersion().fetchOne().then(function(result){
+    /*new models.contentVersion().fetchOne().then(function(result){
       res.json(result);
-    });
+    });*/
   }
 
   return {

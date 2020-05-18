@@ -112,7 +112,8 @@ module.exports = function(models) {
         res.json( {'id':sfId,
         'name': returnSfUser.get('name'),
         'email': returnSfUser.get('email'),
-        'token': data.access_token});
+        'token': data.access_token,
+        'session': data.id_token});
 
         //console.log(returnSfUser.attributes.email)
         //returnSfUser.set_title('test title');

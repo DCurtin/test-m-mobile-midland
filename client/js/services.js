@@ -90,6 +90,7 @@ angular.module('starter.services', [])
         $window.sessionStorage.name = value.name;
         $window.sessionStorage.email = value.email;
         $window.localStorage.token = value.token;
+        $window.localStorage.sessionId = value.id_token;
         //$window.history.replaceState({}, document.title, "/" + "#/sfAuth");
         //this.router.navigate["/test"];
         //$window.location.hash =''
@@ -113,7 +114,7 @@ angular.module('starter.services', [])
         $http.post('/uplloadFile', fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined,
-                    'Authorization': $window.localStorage.token}
+                    'Authorization': $window.localStorage.sessionId}
         }).then(function(result){
           console.log(result)
         });

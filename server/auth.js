@@ -337,12 +337,13 @@ module.exports = function(models) {
         }
 
         var rp  = require('request-promise');
-        rp(options).then(function(result){
-          console.log(result.status)
-          if(result.status == 411)
+        rp(options).
+        rp(options).then(function(response){
+          console.log(response.status)
+          if(response.status == 411)
           {
-            console.log(result)
-            res.status(411).send(result);
+            console.log(response)
+            res.status(411).send(response);
           }
         }).error(function(err){
           console.log('error: ' + err)

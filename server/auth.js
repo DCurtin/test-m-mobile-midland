@@ -312,7 +312,7 @@ module.exports = function(models) {
         var fileData = {
           "Description" : "Marketing brochure for Q1 2011",
           "Keywords" : "marketing,sales,update",
-          "FolderId" : "001g000002HVCgbAAH",
+          "FolderId" : "00l30000001DWP3AAO",
           "Name" : "Marketing Brochure Q1",
           "Type" : "pdf"
         }

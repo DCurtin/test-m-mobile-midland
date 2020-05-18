@@ -311,7 +311,7 @@ module.exports = function(models) {
       fs.readFile(files.file.path, function(err, data){
         var boundaryString = "---------------------------7da24f2e50046";
         var fileData = {
-          "FirstPublishLocationId " : "00l30000001DWP3AAO",
+          "FirstPublishLocationId" : "00l30000001DWP3AAO",
           "PathOnClient" : "Marketing Brochure Q1.png"
         }
 

@@ -328,7 +328,7 @@ module.exports = function(models) {
           uri: url,
           headers: {
             'Authorization': req.get('Authorization'),
-            'Content-Type':  'multipart/form-data boundary=' + boundaryString 
+            'Content-Type':  'multipart/form-data; boundary=' + boundaryString 
           },
           body: payload,
           json: true

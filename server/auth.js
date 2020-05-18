@@ -356,6 +356,8 @@ module.exports = function(models) {
             console.log(result)
             res.status(411).send(result);
           }
+        }).error(function(err){
+          console.log('error: ' + err)
         })
       })
       //console.log(fields);

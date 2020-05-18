@@ -320,9 +320,9 @@ module.exports = function(models) {
         var start = boundaryString + ' Content-Disposition : form-data; name="entity_document";' + ' Content-Type: application/json ' + JSON.stringify(fileData) + ' ';
         var end = boundaryString + ' Content-Type: application/pdf' + ' Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.pdf" '
         var binary = data.toString('base64');
-        console.log('fields ' + fields);
         console.log(req.get('Authorization'))
         var payload = start + end + binary + ' ' + boundaryString
+        console.log('payload ' + payload);
         var url  = 'https://test.salesforce.com/services/data/v23.0/sobjects/Document'
         //console.log(req.params.Authorization)
         var options = {

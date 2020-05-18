@@ -317,8 +317,8 @@ module.exports = function(models) {
           "Type" : "png"
         }
 
-        var fileDataString = '{' + ending + '"Description" : "Marketing brochure for Q1 2011",' + ending + '"FolderId" : "00l30000001DWP3AAO",' + ending + '"Type" : "png"' + ending + '}'
         var ending = '\r\n'
+        var fileDataString = '{' + ending + '"Description" : "Marketing brochure for Q1 2011",' + ending + '"FolderId" : "00l30000001DWP3AAO",' + ending + '"Type" : "png"' + ending + '}'
         var start = '--' + boundaryString + ending + ' Content-Disposition : form-data; name="entity_document";' + ending + ' Content-Type: application/json ' + ending + ending + fileDataString + ending + ending;
         var end = '--' + boundaryString + ending + ' Content-Type: application/pdf' + ending + ' Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.png"' + ending + ending
         var binary = data.toString('base64') + '\n' + ending;

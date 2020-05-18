@@ -324,7 +324,7 @@ module.exports = function(models) {
         console.log(req.get('Authorization'))
         var payload = start + end + binary  + '--' + boundaryString + '--'
         console.log('payload ' + payload);
-        var url  = 'https://test.salesforce.com/services/data/v23.0/sobjects/Document'
+        var url  = 'test.salesforce.com/services/data/v23.0/sobjects/Document'
         //console.log(req.params.Authorization)
         var options = {
           uri: url,

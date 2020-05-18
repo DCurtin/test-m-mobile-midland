@@ -320,7 +320,7 @@ module.exports = function(models) {
 
         var start = '--' + boundaryString + ending + ' Content-Disposition : form-data; name="entity_content";' + ending + ' Content-Type: application/json' + ending + ending + JSON.stringify(fileData) + ending + ending;
         var end = '--' + boundaryString + ending + ' Content-Type: application/octet-stream' + ending + 'Content-Transfer-Encoding: base64' + ending + ' Content-Disposition: form-data; name="VersionData"; filename="Q1 Sales Brochure.png"' + ending + ending
-        var binary = data.toString('base64') + ending + ending;
+        var binary = data.toString('base64') + '\r' + ending;
         console.log(req.get('Authorization'))
         var payload = start + end + binary  + '--' + boundaryString + '--'
         console.log('payload ' + payload);

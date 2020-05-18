@@ -311,21 +311,20 @@ module.exports = function(models) {
       fs.readFile(files.file.path, function(err, data){
         var boundaryString = "---------------------------7da24f2e50046";
         var fileData = {
-          "Description" : "Marketing brochure for Q1 2011",
-          "FolderId" : "00l30000001DWP3AAO",
-          "Name" : "Marketing Brochure Q1",
-          "Type" : "png"
+          "FirstPublishLocationId " : "00l30000001DWP3AAO",
+          "PathOnClient" : "Marketing Brochure Q1.png"
         }
 
         var ending = '\r\n'
         var fileDataString = '{' + ending + '"Description" : "Marketing brochure for Q1 2011",' + ending + '"FolderId" : "00l30000001DWP3AAO",' + ending + '"Name" : "Marketing Brochure Q1",' + ending + '"Type" : "png"' + ending + '}'
-        var start = '--' + boundaryString + ending + ' Content-Disposition : form-data; name="entity_document";' + ending + ' Content-Type: application/json ' + ending + ending + fileDataString + ending + ending;
-        var end = '--' + boundaryString + ending + ' Content-Type: application/pdf' + ending + ' Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.png"' + ending + ending
+
+        var start = '--' + boundaryString + ending + ' Content-Disposition : form-data; name="entity_content";' + ending + ' Content-Type: application/json' + ending + ending + JSON.stringify(fileData) + ending + ending;
+        var end = '--' + boundaryString + ending + ' Content-Type: application/octet-stream' + ending + ' Content-Disposition: form-data; name="VersionData"; filename="Q1 Sales Brochure.png"' + ending + ending
         var binary = data.toString('base64') + ending + ending;
         console.log(req.get('Authorization'))
         var payload = start + end + binary  + '--' + boundaryString + '--'
         console.log('payload ' + payload);
-        var url  = 'https://cs17.salesforce.com/services/data/v23.0/sobjects/Document/'
+        var url  = 'https://cs17.salesforce.com/services/data/v23.0/sobjects/ContentVersion'
         //console.log(req.params.Authorization)
         var options = {
           uri: url,

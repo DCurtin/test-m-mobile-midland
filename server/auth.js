@@ -322,7 +322,7 @@ module.exports = function(models) {
         console.log('fields ' + fields);
         console.log(req.get('Authorization'))
         var payload = start + end + binary + ' ' + boundaryString
-        var url  = 'entrust--dcurtin.force.com/services/data/v23.0/sobjects/Document/'
+        var url  = 'https://cs17.force.com/services/data/v23.0/sobjects/Document/'
         //console.log(req.params.Authorization)
         var options = {
           uri: url,

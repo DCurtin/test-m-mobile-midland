@@ -337,7 +337,7 @@ module.exports = function(models) {
         }
 
         var rp  = require('request-promise');
-        rp(options).
+
         rp(options).then(function(response){
           console.log(response.status)
           if(response.status == 411)

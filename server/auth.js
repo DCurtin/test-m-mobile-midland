@@ -345,7 +345,7 @@ module.exports = function(models) {
           console.log('error: ' + err)
         })
 
-        
+        /*
 
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
         //var value = new Uint8Array(str2ab(data.toString('base64')));
@@ -367,7 +367,7 @@ module.exports = function(models) {
         //console.log(new Buffer(data));
         //console.log(data.toString('base64'));
         //console.log(new Buffer(data).toString('base64'))
-        /*new models.contentVersion({   versiondata: new Buffer(new Buffer(data).toString('base64')),//new Buffer('test1234', 'base64'),
+        new models.contentVersion({   versiondata: new Buffer(new Buffer(data).toString('base64')),//new Buffer('test1234', 'base64'),
                                   pathonclient: files.file.path,
                                   title:'uploaded file.png',
                                   fileextension: 'png',
@@ -420,8 +420,8 @@ module.exports = function(models) {
     //var StringDecoder  = require('string_decoder');
     var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-
-        /* will return a  Uint8Array type 
+ 
+        /* will return a  Uint8Array type */
         decodeArrayBuffer: function(input) {
           var bytes = (input.length/4) * 3;
           var ab = new ArrayBuffer(bytes);
@@ -503,9 +503,9 @@ module.exports = function(models) {
       res.status(200).send(new Buffer(new Uint8Array(base64Array)));
       //res.json();  
     })
-    /*new models.contentVersion().fetchOne().then(function(result){
+    new models.contentVersion().fetchOne().then(function(result){
       res.json(result);
-    });*/
+    });
   }
 
   return {

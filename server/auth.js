@@ -374,8 +374,8 @@ module.exports = function(models) {
                                   filetype: 'PNG',
                                   //sharingprivacy: 'N',
                                   //sharingoption: 'A',
-                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();*/
-        /*var boundaryString = "---------------------------7da24f2e50046";
+                                  firstpublishlocationid: '001g000002HVCgbAAH'}).save();
+        var boundaryString = "---------------------------7da24f2e50046";
         var top =[--boundary_string :boundaryString,
         Content-Disposition: form-data,
          name="entity_document",
@@ -398,7 +398,7 @@ module.exports = function(models) {
         --boundary_string--"
         
         // -H "Authorization: Bearer token" -H "Content-Type: multipart/form-data; boundary=\"boundary_string\"" --data-binary @newdocument.json
-        
+        */
       })
       //console.log(fields);
       //console.log(req.body)
@@ -421,7 +421,7 @@ module.exports = function(models) {
     var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
 
-        /* will return a  Uint8Array type */
+        /* will return a  Uint8Array type 
         decodeArrayBuffer: function(input) {
           var bytes = (input.length/4) * 3;
           var ab = new ArrayBuffer(bytes);

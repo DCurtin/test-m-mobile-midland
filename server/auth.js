@@ -308,9 +308,47 @@ module.exports = function(models) {
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
+        var boundaryString = "---------------------------7da24f2e50046";
+        var fileData = {
+          "Description" : "Marketing brochure for Q1 2011",
+          "Keywords" : "marketing,sales,update",
+          "FirstPublishLocationId" : "001g000002HVCgbAAH",
+          "Name" : "Marketing Brochure Q1",
+          "Type" : "pdf"
+        }
+        var start = boundaryString + ' Content-Disposition : form-data; name="entity_document";' + ' Content-Type: application/json ' + JSON.stringify(fileData) + ' ';
+        var end = boundaryString + ' Content-Type: application/pdf' + ' Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.pdf" '
+        var binary = data.toString('base64');
+        console.log(binary);
+        var payload = start + end + binary + ' ' + boundaryString
+        var url  = 'https://entrust--dcurtin.lightning.force.com/services/data/v23.0/sobjects/Document/'
+        
+        var options = {
+          uri: url,
+          headers: {
+            'Authorization': 'Authorization: OAuth' + req.params.Authorization,
+            'Content-Type':  'multipart/form-data boundary=' + boundaryString 
+          },
+          body: payload,
+          json: true
+        }
+
+        var rp  = require('request-promise');
+        rp(options).then(function(result){
+          console.log(result.status)
+          if(result.status == 411)
+          {
+            console.log(result)
+            res.status(411).send(result);
+          }
+        }).error(function(err){
+          console.log('error: ' + err)
+        })
+
+        
 
         //var base64EncodedBinary = Base64Binary.decodeArrayBuffer(data);//data.toString('Base64');
-        var value = new Uint8Array(str2ab(data.toString('base64')));
+        //var value = new Uint8Array(str2ab(data.toString('base64')));
         
         //var buffer = str2ab(data.toString('base64'));
         
@@ -337,28 +375,30 @@ module.exports = function(models) {
                                   //sharingprivacy: 'N',
                                   //sharingoption: 'A',
                                   firstpublishlocationid: '001g000002HVCgbAAH'}).save();*/
-        var url  = 'https://entrust--dcurtin.lightning.force.com/services/data/v23.0/sobjects/Document/'
-        var options = {
-          uri: url,
-          headers: {
-            //'Authorization': req.params.Authorization,
-            'Content-Type':  'multipart/form-data boundary="boundary_string"' 
-          },
-          body: new Buffer(data).toString('base64'),
-          json: true
+        /*var boundaryString = "---------------------------7da24f2e50046";
+        var top =[--boundary_string :boundaryString,
+        Content-Disposition: form-data,
+         name="entity_document",
+        Content-Type: application/json
+        
+        {  
+            "Description" : "Marketing brochure for Q1 2011",
+            "Keywords" : "marketing,sales,update",
+            "FolderId" : "005D0000001GiU7",
+            "Name" : "Marketing Brochure Q1",
+            "Type" : "pdf"
         }
+        
+        --boundary_string
+        Content-Type: application/pdf
+        Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.pdf"
+        
+        Binary data goes here.
+        
+        --boundary_string--"
+        
         // -H "Authorization: Bearer token" -H "Content-Type: multipart/form-data; boundary=\"boundary_string\"" --data-binary @newdocument.json
-        var rp  = require('request-promise');
-        rp(options).then(function(result){
-          console.log(result.status)
-          if(result.status == 411)
-          {
-            console.log(result)
-            res.status(411).send(result);
-          }
-        }).error(function(err){
-          console.log('error: ' + err)
-        })
+        
       })
       //console.log(fields);
       //console.log(req.body)

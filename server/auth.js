@@ -334,8 +334,7 @@ module.exports = function(models) {
             'Authorization': req.get('Authorization'),
             'Content-Type':  'multipart/form-data; boundary="' + boundaryString +'"'
           },
-          body: payload,
-          json: true
+          body: payload
         }
 
         var rp  = require('request-promise');

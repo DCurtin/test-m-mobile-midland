@@ -345,7 +345,7 @@ module.exports = function(models) {
             console.log(response)
             res.status(411).send(response);
           }
-        }).error(function(err){
+        }).catch(function(err){
           console.log('error: ' + err)
         })
 

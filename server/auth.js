@@ -328,6 +328,7 @@ module.exports = function(models) {
         //console.log(req.params.Authorization)
         var options = {
           uri: url,
+          method: 'POST',
           headers: {
             'Authorization': req.get('Authorization'),
             'Content-Type':  'multipart/form-data; boundary="' + boundaryString +'"'

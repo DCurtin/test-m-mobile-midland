@@ -318,7 +318,7 @@ module.exports = function(models) {
           "Type" : "pdf"
         }
         var start = boundaryString + '; Content-Disposition : form-data; name="entity_document";' + ' Content-Type: application/json ' + JSON.stringify(fileData) + '; ';
-        var end = boundaryString + ' Content-Type: application/pdf' + ' Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.pdf" ;'
+        var end = boundaryString + '; Content-Type: application/pdf' + ' Content-Disposition: form-data; name="Body"; filename="2011Q1MktgBrochure.pdf" ;'
         var binary = data.toString('base64');
         console.log(req.get('Authorization'))
         var payload = start + end + binary + '; ' + boundaryString

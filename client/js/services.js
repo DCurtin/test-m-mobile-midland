@@ -109,6 +109,7 @@ angular.module('starter.services', [])
         var image = new Blob([reader.result]);
         console.log(reader.result)
         fd.append('file', image);
+        console.log('AuthKey: ' + $window.localStorage.token)
         $http.post('/uplloadFile', fd, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined,

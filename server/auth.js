@@ -321,7 +321,7 @@ module.exports = function(models) {
         var binary = data.toString('base64');
         //console.log(binary);
         var payload = start + end + binary + ' ' + boundaryString
-        var url  = 'https://entrust--dcurtin.lightning.force.com/services/data/v23.0/sobjects/Document/'
+        var url  = 'https://entrust--dcurtin.lightning.force.com/services/data/v23.0/sobjects/Document'
         console.log(req.params.Authorization)
         var options = {
           uri: url,

@@ -320,7 +320,7 @@ module.exports = function(models) {
             'name:': 'Q1 Sales Brochure.png',
             'type': 'png'
           },
-          body: payload
+          body: data
         }
 
         var rp  = require('request-promise');

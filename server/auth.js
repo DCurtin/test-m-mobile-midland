@@ -309,7 +309,38 @@ module.exports = function(models) {
     form.parse(req, function(err, fields, files){
       const fs = require('fs')
       fs.readFile(files.file.path, function(err, data){
-        var boundaryString = "---------------------------7da24f2e50046";
+        var url  = 'https://cs17.salesforce.com/services/apexrest/CaseManagement/v1/'
+        var options = {
+          uri: url,
+          method: 'POST',
+          headers: {
+            'Authorization': req.get('Authorization'),
+            'Content-Type':  'application/octet-stream',
+            'firstPubId': '001g000002HVCgbAAH',
+            'name:': 'Q1 Sales Brochure.png',
+            'type': 'png'
+          },
+          body: payload
+        }
+
+        var rp  = require('request-promise');
+
+        rp(options).then(function(response){
+          console.log(response)
+          res.send(response);
+          if(response.status == 411)
+          {
+            console.log(response)
+            res.status(411).send(response);
+          }
+        }).catch(function(err){
+          console.log('error: ' + err)
+        })
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+        /*var boundaryString = "---------------------------7da24f2e50046";
         var fileData = {
           "FirstPublishLocationId" : "001g000002HVCgbAAH",
           "PathOnClient" : "Marketing Brochure Q1.png"
@@ -349,7 +380,7 @@ module.exports = function(models) {
           }
         }).catch(function(err){
           console.log('error: ' + err)
-        })
+        })*/
 
         /*
 

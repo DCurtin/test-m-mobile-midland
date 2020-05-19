@@ -159,7 +159,7 @@ angular.module('starter.services', [])
     },
 
     getAccounts: function(){
-      var user = $rootScope.user;
+      var user = {id:'0050M00000Dv1h5QAB'}//$rootScope.user;
       console.log(user.id);
       return $http.post('/getAccounts',user).then(function(result){
         console.log(JSON.stringify(result));
